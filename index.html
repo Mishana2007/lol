@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <title>BREEZE - Аренда яхт</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">BREEZE</a>
+            <a href="index.html" class="logo">BREEZE</a>
             
             <ul class="nav-menu">
                 <li><a href="index.html">Главный экран</a></li>               
@@ -131,32 +133,36 @@
     
             <!-- Карточка 1 -->
             <div class="catalog-item">
-    <div class="catalog-image">
-        <img src="yacht-hecmes.jpg" alt="Катер Blueberry">
-        <div class="catalog-tag">12 чел.</div>
-        <div class="catalog-hit">🔥 Хит</div>
-    </div>
-    <div class="catalog-info">
-        <h3>HERMES</h3>
-        <p class="catalog-price">от <span>30000</span> ₽/час</p>
-        <div class="catalog-buttons">
-            <a href="HERMES.html?yacht=blueberry" class="btn-details">Подробнее <i class="fas fa-arrow-right"></i></a>
-            <a href="#" class="btn-rent">Арендовать <i class="fas fa-arrow-right"></i></a>
-        </div>
-        <div class="catalog-features">
-            <span>🎵 Музыка: Bluetooth + сабвуфер</span>
-            <span>🛏️ Каюты с обогревом</span>
-            <span>⛱️ Флайбридж + зона загара</span>
-            <span>❄️ Холодильник + лед</span>
-            <span>🍳 Гриль, плита (по запросу)</span>
-        </div>
-    </div>
-</div>
-    
-            <!-- Карточка 2 -->
+                <div class="catalog-image">
+                    <button class="prev-btn" onclick="prevImage(this)">&#10094;</button>
+                    <img src="yacht-hecmes.jpg" alt="Катер HERMES" class="catalog-photo">
+                    <button class="next-btn" onclick="nextImage(this)">&#10095;</button>
+                    <div class="catalog-tag">12 чел.</div>
+                    <div class="catalog-hit">🔥 Хит</div>
+                </div>
+                <div class="catalog-info">
+                    <h3>HERMES</h3>
+                    <p class="catalog-price">от <span>30000</span> ₽/час</p>
+                    <div class="catalog-buttons">
+                        <a href="HERMES.html" class="btn-details">Подробнее <i class="fas fa-arrow-right"></i></a>
+                        <a href="#" class="btn-rent">Арендовать <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="catalog-features">
+                        <span>🎵 Музыка: Bluetooth + сабвуфер</span>
+                        <span>🛏️ Каюты с обогревом</span>
+                        <span>⛱️ Флайбридж + зона загара</span>
+                        <span>❄️ Холодильник + лед</span>
+                        <span>🍳 Гриль, плита (по запросу)</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Карточка ECLIPSE -->
             <div class="catalog-item">
                 <div class="catalog-image">
-                    <img src="ECLIPSE.jpg" alt="Катер">
+                    <button class="prev-btn" onclick="prevImage(this)">&#10094;</button>
+                    <img src="ECLIPSE.jpg" alt="Катер ECLIPSE" class="catalog-photo">
+                    <button class="next-btn" onclick="nextImage(this)">&#10095;</button>
                     <div class="catalog-tag">10 чел.</div>
                 </div>
                 <div class="catalog-info">
@@ -176,8 +182,90 @@
                     </div>
                 </div>
             </div>
-    
-        </div>
+            
+            <!-- Карточка Velvette -->
+            <div class="catalog-item">
+                <div class="catalog-image">
+                    <button class="prev-btn" onclick="prevImage(this)">&#10094;</button>
+                    <img src="VELVETTE.jpg" alt="Катер Velvette" class="catalog-photo">
+                    <button class="next-btn" onclick="nextImage(this)">&#10095;</button>
+                    <div class="catalog-tag">7 чел.</div>
+                    <div class="catalog-hit">✨ Новинка</div>
+                </div>
+                <div class="catalog-info">
+                    <h3>Катер Velvette</h3>
+                    <p class="catalog-price">от <span>8000</span> ₽/час</p>
+                    <div class="catalog-buttons">
+                        <a href="Velvette.html" class="btn-details">Подробнее <i class="fas fa-arrow-right"></i></a>
+                        <a href="#" class="btn-rent">Арендовать <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="catalog-features">
+                        <span>🎵 Hi-End аудиосистема</span>
+                        <span>🍷 Мини-бар</span>
+                        <span>🌊 Панорамный вид</span>
+                        <span>⛱️ Просторный тент</span>
+                        <span>🚻 2 туалета + душ</span>
+                        <span>🥂 Бокалы и посуда</span>
+                    </div>
+                </div>
+            </div>
+
+            <style>
+                .catalog-item {
+    display: flex;
+    flex-direction: column;
+    background: #f5f5f5;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.catalog-item:hover {
+    transform: scale(1.02);
+}
+
+.catalog-image {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.catalog-photo {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: opacity 0.3s ease;
+}
+
+/* Стрелки */
+.prev-btn, .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    transition: background 0.3s ease;
+}
+
+.prev-btn:hover, .next-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+            </style>
 
         <!-- Всплывающее окно бронирования -->
 <!-- Всплывающее окно бронирования -->

@@ -256,3 +256,56 @@ document.addEventListener("DOMContentLoaded", function () {
         backArrow.classList.remove("show");
     });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".catalog-item").forEach((item) => {
+        const mainImage = item.querySelector(".catalog-photo");
+        const prevBtn = item.querySelector(".prev-btn");
+        const nextBtn = item.querySelector(".next-btn");
+        const detailsBtn = item.querySelector(".btn-details");
+        const rentBtn = item.querySelector(".btn-rent");
+
+        // Определяем страницу описания по названию яхты
+        const yachtPages = {
+            "HERMES": "HERMES.html",
+            "ECLIPSE": "ECLIPSE.html",
+            "Катер Velvette": "Velvette.html"
+        };
+
+        let yachtName = item.querySelector("h3").innerText.trim();
+        let currentIndex = 0;
+
+        const images = {
+            "HERMES": ["yacht-hecmes.jpg", "yacht-hecmes2.jpg", "yacht-hecmes3.jpg", "yacht-hecmes4.jpg"],
+            "ECLIPSE": ["ECLIPSE.jpg", "ECLIPSE1.jpg", "ECLIPSE2.jpg", "ECLIPSE3.jpg"],
+            "Катер Velvette": ["VELVETTE.jpg", "VELVETTE1.jpg", "VELVETTE2.jpg", "VELVETTE3.jpg"]
+        };
+
+        if (!images[yachtName] || images[yachtName].length === 0) return;
+
+        function updateImage(index) {
+            mainImage.src = images[yachtName][index];
+        }
+
+        prevBtn.addEventListener("click", (event) => {
+            event.stopPropagation();
+            currentIndex = (currentIndex - 1 + images[yachtName].length) % images[yachtName].length;
+            updateImage(currentIndex);
+        });
+
+        nextBtn.addEventListener("click", (event) => {
+            event.stopPropagation();
+            currentIndex = (currentIndex + 1) % images[yachtName].length;
+            updateImage(currentIndex);
+        });
+
+        // Добавляем обработчик клика на всю карточку, но исключаем кнопки
+        item.addEventListener("click", (event) => {
+            if (!event.target.closest(".btn-details") && !event.target.closest(".btn-rent") && !event.target.closest(".prev-btn") && !event.target.closest(".next-btn")) {
+                window.location.href = yachtPages[yachtName] || "#"; // Открываем страницу яхты
+            }
+        });
+
+        updateImage(currentIndex);
+    });
+});
