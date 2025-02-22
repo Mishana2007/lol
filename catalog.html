@@ -12,6 +12,10 @@
 <body>
 
 <style>
+
+html {
+    scroll-behavior: smooth;
+}
         body {
     font-family: 'Arial', sans-serif;
     color: #333;
@@ -202,7 +206,7 @@
 
 
         /* Стили кнопки "Арендовать" */
-.cta-button {
+        .cta-button {
     width: 100%;
     padding: 16px 22px;
     font-size: 18px;
@@ -213,16 +217,27 @@
     border-radius: 30px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-    background: linear-gradient(45deg, #ffcc00, #e1ad01);
+    background: linear-gradient(74deg, rgba(154,242,207,1) 12%, rgba(60,214,246,1) 93%);
     background-size: 200% 200%;
-    animation: goldShimmer 3s infinite alternate;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    animation: softGlow 3s infinite alternate;
+    box-shadow: 0 4px 10px rgba(60, 214, 246, 0.4);
 }
 
-/* Эффект "живого золота" */
-@keyframes goldShimmer {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 100% 50%; }
+/* Эффект наведения */
+.cta-button:hover {
+    background: linear-gradient(74deg, rgba(60,214,246,1) 12%, rgba(154,242,207,1) 93%);
+    transform: scale(1.05);
+    box-shadow: 0px 6px 15px rgba(60, 214, 246, 0.5);
+}
+
+/* Анимация мягкого сияния */
+@keyframes softGlow {
+    0% {
+        box-shadow: 0 4px 10px rgba(60, 214, 246, 0.3);
+    }
+    100% {
+        box-shadow: 0 6px 15px rgba(154, 242, 207, 0.5);
+    }
 }
 
 /* Эффект нажатия */
@@ -502,9 +517,9 @@
     <div class="mobile-menu" id="mobile-menu">
         <div class="mobile-menu-content">
             <a href="index.html">Главный экран</a>
-            <a href="#">Каталог яхт</a>
-            <a href="#">Отзывы</a>
-            <a href="#">Контакты</a>
+            <a href="catalog.html">Каталог яхт</a>
+            <a href="index.html#reviews">Отзывы</a>
+<a href="index.html#contacts">Контакты</a>
         </div>
         <button class="close-menu" id="close-menu">✖</button>
     </div>
@@ -522,11 +537,11 @@
                 <div class="catalog-image">
                     <img src="yacht-hecmes.jpg" alt="Катер Blueberry">
                     <div class="catalog-tag">12 чел.</div>
-                    <div class="catalog-hit">🔥 Хит</div>
+                    <div class="catalog-hit">19 м</div>
                 </div>
                 <div class="catalog-info">
                     <h3>HERMES</h3>
-                    <p class="catalog-price">от <span>30000</span> ₽/час</p>
+                    <p class="catalog-price"><span>30000</span> ₽/час</p>
                     <div class="catalog-buttons">
                         <a href="HERMES.html?yacht=blueberry" class="btn-details">Подробнее <i class="fas fa-arrow-right"></i></a>
                         <a href="#" class="btn-rent">Арендовать <i class="fas fa-arrow-right"></i></a>
@@ -546,10 +561,11 @@
                 <div class="catalog-image">
                     <img src="ECLIPSE.jpg" alt="Катер Redwood">
                     <div class="catalog-tag">10 чел.</div>
+                    <div class="catalog-hit">16 м</div>
                 </div>
                 <div class="catalog-info">
                     <h3>ECLIPSE</h3>
-                    <p class="catalog-price">от <span>15000</span> ₽/час</p>
+                    <p class="catalog-price"><span>15000</span> ₽/час</p>
                     <div class="catalog-buttons">
                         <a href="ECLIPSE.html" class="btn-details">Подробнее <i class="fas fa-arrow-right"></i></a>
                         <a href="#" class="btn-rent">Арендовать <i class="fas fa-arrow-right"></i></a>
@@ -570,11 +586,11 @@
                 <div class="catalog-image">
                     <img src="VELVETTE.jpg" alt="Катер Black Pearl">
                     <div class="catalog-tag">7 чел.</div>
-                    <div class="catalog-hit">✨ Новинка</div>
+                    <div class="catalog-hit">10 м</div>
                 </div>
                 <div class="catalog-info">
                     <h3> Катер Velvette</h3>
-                    <p class="catalog-price">от <span>8000</span> ₽/час</p>
+                    <p class="catalog-price"><span>8000</span> ₽/час</p>
                     <div class="catalog-buttons">
                         <a href="Velvette.html?yacht=blackpearl" class="btn-details">Подробнее <i class="fas fa-arrow-right"></i></a>
                         <a href="#" class="btn-rent">Арендовать <i class="fas fa-arrow-right"></i></a>

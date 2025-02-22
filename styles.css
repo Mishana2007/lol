@@ -1,28 +1,77 @@
+/* Подключаем премиальные шрифты */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&family=Lexend:wght@700&display=swap');
+
+/* Базовые стили */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Poppins', sans-serif; /* Современный и читаемый основной шрифт */
 }
 
-body {
-    font-family: Arial, sans-serif;
-    overflow-x: hidden;
-}
-
-
+/* Заголовки, логотип */
 h1, h2, h3, .logo {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Playfair Display', serif; /* Элегантный, премиальный стиль */
     font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* Цена */
+.catalog-price {
+    font-family: 'Lexend', sans-serif; /* Современный цифровой стиль */
+    font-weight: 700;
+    font-size: 24px;
+    color: #E63946; /* Красивый премиальный красный */
+}
+
+/* Основной текст */
+p, .description, .review-comment {
+    font-family: 'Poppins', sans-serif; /* Минималистичный и легко читаемый текст */
+    font-weight: 400;
+    font-size: 16px;
+    color: #3c3b3b;
+}
+
+/* Кнопки */
+.button, .btn-rent, .btn-details {
+    font-family: 'Lexend', sans-serif; /* Строгий, техно-шрифт для кнопок */
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 12px 24px;
+    border-radius: 6px;
+    transition: background 0.3s ease;
+}
+
+/* Логотип */
+.logo {
+    font-size: 38px;
+    font-family: 'Cinzel', serif;
+    color: #1a1a1a;
+    letter-spacing: 1px;
 }
 
 .navbar {
-    position: fixed;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.95);
-    padding: 1rem 2rem;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed; /* Фиксируем в верхней части */
+    top: 0; /* Привязываем к самой верхушке */
+    left: 0;
+    width: 100%; /* Растягиваем по всей ширине */
+    background: rgba(255, 255, 255, 0.95); /* Прозрачность для лёгкости */
+    padding: 0.8rem 2rem; /* Уменьшили отступы, чтобы меню не занимало много места */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Лёгкая тень */
     z-index: 1000;
+    transition: top 0.3s ease-in-out; /* Плавный эффект скрытия */
+}
+
+/* Чтобы контент не перекрывался меню */
+body {
+    padding-top: 40px; /* Добавляем отступ сверху, равный высоте navbar */
+}
+
+/* Автоматическое скрытие при прокрутке вниз */
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 0.6rem 1.5rem; /* Уменьшаем отступы на мобильных */
+    }
 }
 
 .nav-container {
@@ -212,41 +261,81 @@ cursor: pointer;
 z-index: 1000;
 }
 
+/* Основной стиль секции */
 .hero-section {
     position: relative;
     text-align: center;
     padding: 0;
 }
 
-
+/* Фон баннера */
 .hero-image {
     background: url('yacht-background.png') center/cover no-repeat;
-    height: 250px; /* Уменьшаем высоту */
+    height: 350px; /* Увеличенная высота */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     color: white;
+    position: relative;
     padding: 20px;
 }
 
-
-
-
-.hero-content {
-    max-width: 800px;
+/* Затемнение для контраста */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
 }
 
+/* Заголовок (поднимаем вверх) */
 .hero-title {
+    font-family: 'Playfair Display', serif;
     font-size: 3rem;
-    margin-bottom: 1.5rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 20%; /* Поднял выше */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
 }
 
+/* Подзаголовок (оставляем внизу) */
 .hero-subtitle {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    font-family: 'Lora', serif; /* Элегантный шрифт */
+    font-size: 1.6rem;
+    text-align: center;
+    color: #ffffff;
+    max-width: 80%;
+    position: absolute;
+    bottom: 10%; /* Оставляем 15px от нижнего края */
+    left: 50%;
+    transform: translateX(-50%);
+    line-height: 1.6;
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 768px) {
+    .hero-image {
+        height: 280px;
+    }
+
+    .hero-title {
+        font-size: 2.4rem;
+        top: 18%; /* Поднимаем еще выше на мобилках */
+    }
+
+    .hero-subtitle {
+        font-size: 1.3rem;
+        bottom: 8%; /* Чуть выше */
+    }
 }
 
 .advantages {
@@ -544,45 +633,80 @@ box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     object-position: center;
 }
 
+/* Обновленный стиль для тегов */
+/* Стиль для "кол-ва чел." */
+.catalog-tag,
+.catalog-hit {
+    position: absolute;
+    top: 10px;
+    background: white;
+    color: black;
+    font-size: 12px; /* Уменьшен размер шрифта */
+    font-weight: 400; /* Нормальная толщина шрифта */
+    padding: 4px 12px; /* Уменьшенные отступы */
+    border-radius: 14px; /* Более мягкие скругления */
+    text-transform: uppercase;
+    display: flex;
+    align-items: baseline;
+    gap: 2px;
+}
+
 .catalog-tag {
-position: absolute;
-top: 10px;
-left: 10px;
-background: black;
-color: white;
-font-size: 14px;
-padding: 5px 10px;
-border-radius: 5px;
+    left: 10px;
 }
 
 .catalog-hit {
-position: absolute;
-top: 10px;
-right: 10px;
-background: red;
-color: white;
-font-size: 14px;
-padding: 5px 10px;
-border-radius: 5px;
+    right: 10px;
 }
 
-/* Информация */
+/* Стиль для цифр */
+.catalog-tag b,
+.catalog-hit b {
+    font-weight: 600; /* Полужирные цифры */
+    font-size: 13px; /* Чуть крупнее цифры */
+}
+
+/* Убраны все эффекты границ и теней */
+.catalog-tag:hover,
+.catalog-hit:hover {
+    background: white; /* Отключен hover-эффект */
+    color: black;
+}
+
+/* Контейнер информации */
 .catalog-info {
-padding: 15px;
+    display: flex;
+    padding: 25px 20px; /* Увеличил верхний и нижний отступ */
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px; /* Увеличил расстояние между элементами */
+}
+
+.catalog-info h3,
+.catalog-price {
+    display: inline-block;
+    width: auto;
+    margin: 0;
 }
 
 .catalog-info h3 {
-font-size: 20px;
-font-weight: bold;
-margin-bottom: 5px;
-color: #222;
+    font-size: 22px;
+    font-weight: bold;
+    color: #222;
+    flex: 1;
+    text-align: left;
 }
 
 .catalog-price {
-font-size: 18px;
-font-weight: bold;
-color: #222;
-margin-bottom: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    text-align: right;
+    white-space: nowrap; /* Запрещает разрыв ₽/час */
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .catalog-price span {
@@ -592,9 +716,11 @@ color: black;
 
 /* Кнопки */
 .catalog-buttons {
-display: flex;
-gap: 10px;
-margin-bottom: 15px;
+    display: flex;
+    justify-content: center; /* Центрируем кнопки */
+    align-items: center;
+    width: 100%; /* Растягиваем контейнер кнопок */
+    gap: 20px; /* Делаем расстояние между кнопками */
 }
 
 .btn-details,
@@ -612,29 +738,94 @@ align-items: center;
 gap: 5px;
 }
 
+/* Кнопка "Подробнее" */
 .btn-details {
-background: #f0f0f0;
-color: black;
+    background: white;
+    color: black;
+    font-weight: 500; /* Уменьшили жирность текста */
+    font-size: 14px;
+    text-transform: uppercase;
+    padding: 10px 18px;
+    border-radius: 18px;
+    border: 1.5px solid black;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 1.5px 5px rgba(0, 0, 0, 0.2);
+    width: 150px; /* Сделал фиксированную ширину для ровности */
+    text-align: center;
 }
 
+/* Эффект при наведении */
+.btn-details:hover {
+    background: linear-gradient(119deg, rgba(229,249,54,1) 0%, rgba(222,226,206,1) 100%);
+    transform: scale(1.05);
+    box-shadow: 0px 3px 8px rgba(229, 249, 54, 0.5);
+    border-color: black;
+}
+
+/* Кнопка "Арендовать" */
 .btn-rent {
-background: #ffd700;
-color: black;
+    background: rgb(230,255,10);
+    background: linear-gradient(119deg, rgba(230,255,10,1) 40%, rgba(200,223,108,1) 84%);
+    color: black;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 2px 6px rgba(200, 223, 108, 0.4);
+    width: 150px; /* Сделал фиксированную ширину для симметрии */
+    text-align: center;
 }
 
-/* Иконки */
+/* Эффект при наведении */
+.btn-rent:hover {
+    background: linear-gradient(119deg, rgba(200,223,108,1) 40%, rgba(230,255,10,1) 84%);
+    transform: scale(1.05);
+    box-shadow: 0px 4px 10px rgba(230, 255, 10, 0.6);
+}
+
+/* Блок характеристик в одну линию */
+/* Общий контейнер характеристик */
+/* Блок "На борту" */
 .catalog-features {
-display: flex;
-flex-wrap: wrap;
-gap: 10px;
-font-size: 14px;
-color: #555;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px; /* Отступы между элементами */
+    font-size: 14px;
+    color: #333;
+    justify-content: flex-start; /* Выравниваем влево */
+    margin-top: 10px; /* Отступ сверху, чтобы он шел сразу под кнопками */
 }
 
+/* Заголовок "На борту:" */
+.features-title {
+    font-weight: 600;
+    font-size: 14px;
+    color: #222;
+    margin-right: 10px;
+    white-space: nowrap;
+}
+
+/* Элементы в одной линии */
 .catalog-features span {
-display: flex;
-align-items: center;
-gap: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Расстояние между иконкой и текстом */
+    font-weight: 500;
+    white-space: nowrap; /* Запрещает перенос текста */
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 768px) {
+    .catalog-features {
+        gap: 8px;
+        font-size: 13px;
+    }
 }
 
 /* Адаптация */
@@ -1206,4 +1397,62 @@ width: 90%;
         width: 40px;
         height: 40px;
     }
+}
+
+
+
+
+.catalog-item {
+    display: flex;
+    flex-direction: column;
+    background: #f5f5f5;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.catalog-item:hover {
+    transform: scale(1.02);
+}
+
+.catalog-image {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.catalog-photo {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: opacity 0.3s ease;
+}
+
+/* Стрелки */
+.prev-btn, .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    transition: background 0.3s ease;
+}
+
+.prev-btn:hover, .next-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
 }

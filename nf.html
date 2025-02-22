@@ -140,56 +140,46 @@
 
         .price-section {
     display: flex;
-    align-items: center;
     justify-content: center;
-    gap: 15px;
-    margin: 25px 0;
-    flex-wrap: nowrap;
+    margin: 15px auto;
     max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
-.price-box {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    padding: 6px 20px;
-    border-radius: 40px;
-    font-size: 15px;
+.price-unified {
+    background: linear-gradient(74deg, rgba(122,215,178,1) 16%, rgba(60,175,199,1) 89%);
+    color: white;
+    padding: 12px 25px; /* +2px сверху/снизу и +5px по бокам */
+    border-radius: 45px;
     font-weight: bold;
     text-transform: uppercase;
-    color: #fff;
-    border: none;
-    width: 48%; /* Растягиваем, но чтобы влезло в одну строку */
+    font-size: 18px; /* +2px от оригинала */
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 12px rgba(60, 175, 199, 0.4); /* тень чуть интенсивнее */
     min-width: 200px;
 }
 
-.price-weekday {
-    background: #f5f2e9;
-    color: #5c5c5c;
-    border: 2px solid #ddd5b9;
-}
-
-/* ПТ-ВС (глубокий золотой с эффектом объема) */
-.price-weekend {
-    background: linear-gradient(45deg, #b8860b, #d4af37);
-    color: white;
+.price-unified:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 6px 15px rgba(60, 175, 199, 0.5);
 }
 
 .price-inner {
     background: white;
-    padding: 4px 14px;
-    border-radius: 25px;
-    font-size: 17px;
-    font-weight: bold;
-    color: #000;
+    padding: 8px 20px; /* +2px сверху/снизу */
+    border-radius: 40px;
+    font-size: 24px; /* +2px от оригинала */
+    margin-top: 6px;
+    color: #2A7F9E; /* более насыщенный цвет */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-.price-box:hover {
-    transform: scale(1.02);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+.price-inner strong {
+    font-weight: 800; /* полужирнее */
+    letter-spacing: -0.5px; /* компактнее */
+}
+
+.price-unified span:first-child {
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1); /* легкая тень для контраста */
 }
 
 

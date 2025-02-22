@@ -156,22 +156,31 @@
 }
 
 .spec-tag {
-    background: linear-gradient(-45deg, #b8860b, #d4af37, #e8c86d, #b8860b);
+    background: rgb(122,215,178);
+    background: linear-gradient(74deg, rgba(122,215,178,1) 0%, rgba(129,222,242,1) 100%);
     background-size: 300% 300%;
     color: white;
-    padding: 4px 10px; /* Сделал компактнее */
-    border-radius: 10px; /* Чуть меньше закругление */
-    font-size: 14px; /* Сделал текст меньше */
+    padding: 4px 12px; /* Чуть шире для лучшей читабельности */
+    border-radius: 8px; /* Уменьшено для аккуратности */
+    font-size: 14px;
     font-weight: bold;
     text-transform: uppercase;
     transition: 0.5s ease-in-out;
-    animation: waterFlow 4s infinite linear;
+    animation: smoothFlow 4s infinite linear;
+    box-shadow: 0px 2px 8px rgba(122, 215, 178, 0.5);
 }
 
-@keyframes waterFlow {
+/* Анимация плавного движения градиента */
+@keyframes smoothFlow {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
+}
+
+/* Эффект при наведении */
+.spec-tag:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 4px 12px rgba(129, 222, 242, 0.6);
 }
 
         .section-title {
@@ -235,11 +244,23 @@
 
 /* ПТ-ВС (золотистый градиент) */
 .price-weekend {
-    background: linear-gradient(45deg, #b8860b, #d4af37);
+    background: rgb(122,215,178);
+    background: linear-gradient(74deg, rgba(122,215,178,1) 16%, rgba(60,175,199,1) 89%);
     color: white;
     padding: 10px 20px;
     border-radius: 45px;
-    transition: background 0.3s ease-in-out;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 16px;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+    box-shadow: 0px 4px 10px rgba(60, 175, 199, 0.4);
+}
+
+/* Эффект при наведении */
+.price-weekend:hover {
+    background: linear-gradient(74deg, rgba(60,175,199,1) 16%, rgba(122,215,178,1) 89%);
+    transform: scale(1.05);
+    box-shadow: 0px 6px 12px rgba(60, 175, 199, 0.6);
 }
 
 .price-inner {
@@ -262,7 +283,7 @@
 
 
         /* Стили кнопки "Арендовать" */
-.cta-button {
+        .cta-button {
     width: 100%;
     padding: 16px 22px;
     font-size: 18px;
@@ -273,16 +294,27 @@
     border-radius: 30px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-    background: linear-gradient(45deg, #ffcc00, #e1ad01);
+    background: linear-gradient(74deg, rgba(154,242,207,1) 12%, rgba(60,214,246,1) 93%);
     background-size: 200% 200%;
-    animation: goldShimmer 3s infinite alternate;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    animation: softGlow 3s infinite alternate;
+    box-shadow: 0 4px 10px rgba(60, 214, 246, 0.4);
 }
 
-/* Эффект "живого золота" */
-@keyframes goldShimmer {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 100% 50%; }
+/* Эффект наведения */
+.cta-button:hover {
+    background: linear-gradient(74deg, rgba(60,214,246,1) 12%, rgba(154,242,207,1) 93%);
+    transform: scale(1.05);
+    box-shadow: 0px 6px 15px rgba(60, 214, 246, 0.5);
+}
+
+/* Анимация мягкого сияния */
+@keyframes softGlow {
+    0% {
+        box-shadow: 0 4px 10px rgba(60, 214, 246, 0.3);
+    }
+    100% {
+        box-shadow: 0 6px 15px rgba(154, 242, 207, 0.5);
+    }
 }
 
 /* Эффект нажатия */
@@ -609,11 +641,11 @@
 
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">BREEZE</a>
+            <a href="index.html" class="logo">BREEZE</a>
             
             <ul class="nav-menu">
-                <li><a href="#">Главный экран</a></li>
-                <li><a href="#">Каталог яхт</a></li>
+                <li><a href="index.html">Главный экран</a></li>
+                <li><a href="catalog.html">Каталог яхт</a></li>
                 <li><a href="#">Отзывы</a></li>
                 <li><a href="#">Контакты</a></li>
             </ul>
@@ -674,11 +706,11 @@
             <div class="price-section">
                 <div class="price-box price-weekday">
                     <span>ПН-ЧТ</span>
-                    <span class="price-inner">ОТ <strong>15 000</strong> ₽/ЧАС</span>
+                    <span class="price-inner"><strong>15 000</strong> ₽/ЧАС</span>
                 </div>
                 <div class="price-box price-weekend">
                     <span>ПТ-ВС</span>
-                    <span class="price-inner">ОТ <strong>20 000</strong> ₽/ЧАС</span>
+                    <span class="price-inner"><strong>20 000</strong> ₽/ЧАС</span>
                 </div>
             </div>
 

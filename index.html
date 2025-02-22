@@ -1,178 +1,216 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <title>BREEZE - Аренда яхт</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <!-- 🔥 SEO-МЕТАДАННЫЕ -->
+        <title>Аренда яхт в Санкт-Петербурге | BREEZE - Каталог элитных яхт</title>
+        <meta name="description" content="Аренда яхт в Санкт-Петербурге от BREEZE: элитные яхты, прогулки по Неве, корпоративные мероприятия, дни рождения. Лучшие маршруты и комфортные условия!">
+        <meta name="keywords" content="аренда яхт СПб, прогулка на яхте, элитные яхты Санкт-Петербург, прокат яхты, катер с капитаном, частные яхты, аренда катеров">
+        <meta name="author" content="BREEZE Yachts">
+        <meta name="robots" content="index, follow">
+        <link rel="canonical" href="https://zabor-178.ru">
+    
+        <!-- 🌍 Open Graph (Facebook, WhatsApp, Telegram) -->
+        <meta property="og:title" content="Аренда яхт в Санкт-Петербурге | BREEZE">
+        <meta property="og:description" content="Арендуйте элитные яхты для прогулок по Неве! Комфортные условия, опытный экипаж, индивидуальные маршруты. Бронирование онлайн.">
+        <meta property="og:image" content="https://zabor-178.ru/img/yacht-preview.jpg">
+        <meta property="og:url" content="https://zabor-178.ru">
+        <meta property="og:type" content="website">
+        
+        <!-- 🐦 Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Аренда яхт в Санкт-Петербурге | BREEZE">
+        <meta name="twitter:description" content="Закажите прогулку на яхте в СПб: комфорт, элитные маршруты, роскошные катера.">
+        <meta name="twitter:image" content="https://zabor-178.ru/img/yacht-preview.jpg">
+    
+        <!-- 📍 Локальная оптимизация -->
+        <meta name="geo.placename" content="Санкт-Петербург">
+        <meta name="geo.region" content="RU-SPB">
+        <meta name="geo.position" content="59.9343;30.3351">
+        <meta name="ICBM" content="59.9343, 30.3351">
+    
+        <!-- 🔍 Favicon -->
+        <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    
+        <!-- 📖 Schema.org микроразметка -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "BREEZE Yachts",
+            "image": "https://zabor-178.ru/img/yacht-preview.jpg",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Адмиралтейская наб., 12",
+                "addressLocality": "Санкт-Петербург",
+                "addressCountry": "RU"
+            },
+            "telephone": "+7 965 797-46-79",
+            "email": "info@breeze-yachts.ru",
+            "url": "https://zabor-178.ru",
+            "priceRange": "$$$",
+            "sameAs": [
+                "https://t.me/breeze_yachts",
+                "https://wa.me/79657974679",
+                "tel:+79657974679"
+            ]
+        }
+        </script>
+    
+        <!-- 📍 Schema.org для Breadcrumbs -->
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Главная",
+              "item": "https://zabor-178.ru"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Каталог яхт",
+              "item": "https://zabor-178.ru/catalog.html"
+            }
+          ]
+        }
+        </script>
+    
+        <!-- Альтернативные языки (если есть англ. версия) -->
+        <link rel="alternate" hreflang="ru" href="https://zabor-178.ru">
+        <link rel="alternate" hreflang="en" href="https://zabor-178.ru/en">
+    
+        <!-- 🌟 Подключение шрифтов -->
+        <link rel="stylesheet" href="styles.css">
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lexend:wght@400;700&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    
+        <!-- 🚀 Подключение иконок -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    </head>
+    <body>
+
+    <!-- Навигация -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="logo">BREEZE</a>
+            <a href="index.html" class="logo" aria-label="Главная страница BREEZE Yachts">BREEZE</a>
             
             <ul class="nav-menu">
                 <li><a href="index.html">Главный экран</a></li>               
                 <li><a href="catalog.html">Каталог яхт</a></li>
-                <li><a href="#">Отзывы</a></li>
-                <li><a href="#">Контакты</a></li>
+                <li><a href="#reviews">Отзывы</a></li>
+                <li><a href="#contacts">Контакты</a></li>
             </ul>
 
             <div class="social-icons desktop">
-                <a href="#"><i class="fab fa-whatsapp"></i></a>
-                <a href="#"><i class="fab fa-telegram"></i></a>
-                <a href="#"><i class="fas fa-phone"></i></a>
+                <a href="https://wa.me/79657974679" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://t.me/BREEZEyachts" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                <a href="tel:+79657974679" aria-label="Позвонить"><i class="fas fa-phone"></i></a>
             </div>
 
             <div class="mobile-controls">
                 <div class="social-icons mobile">
-                    <a href="#"><i class="fab fa-whatsapp"></i></a>
-                    <a href="#"><i class="fab fa-telegram"></i></a>
-                    <a href="#"><i class="fas fa-phone"></i></a>
+                    <a href="https://wa.me/79657974679" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://t.me/BREEZEyachts" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                    <a href="tel:+79657974679" aria-label="Позвонить"><i class="fas fa-phone"></i></a>
                 </div>
-                <button class="menu-btn">
+                <button class="menu-btn" aria-label="Открыть меню">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
         </div>
     </nav>
 
+    <!-- Мобильное меню -->
     <div class="overlay" id="overlay"></div>
 
-<div class="mobile-menu" id="mobile-menu">
-    <div class="mobile-menu-content">
-        <a href="#">Главный экран</a>
-        <a href="#">Каталог яхт</a>
-        <a href="#">Отзывы</a>
-        <a href="#">Контакты</a>
-    </div>
-    <button class="close-menu" id="close-menu">✖</button>
-</div>
-
-<!-- Кнопка открытия меню -->
-<!-- <button class="menu-button" id="menu-button">☰</button> -->
-
-<section class="hero-section">
-    <div class="hero-image">
-        <h1 class="hero-title">Лучший сервис аренды яхт</h1>
-        <p class="hero-subtitle">Откройте для себя незабываемые морские приключения</p>
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-content">
+            <a href="index.html">Главный экран</a>
+            <a href="catalog.html">Каталог яхт</a>
+            <a href="#reviews">Отзывы</a>
+            <a href="#contacts">Контакты</a>
+        </div>
+        <button class="close-menu" id="close-menu" aria-label="Закрыть меню">✖</button>
     </div>
 
-    <!-- <div class="advantages">
-        <div class="advantage-card">
-            <i class="fas fa-star"></i>
-            <div class="advantage-text">
-                <h3>Премиум флот</h3>
-                <p>Яхты класса люкс для незабываемого отдыха</p>
-            </div>
+    <!-- Хедер с фоном и заголовком -->
+    <section class="hero-section">
+        <div class="hero-image">
+            <div class="hero-overlay"></div>
+            <h1 class="hero-title">Аренда яхт в Санкт-Петербурге</h1>
+            <p class="hero-subtitle">Роскошные яхты по самым выгодным ценам</p>
         </div>
-        <div class="advantage-card">
-            <i class="fas fa-clock"></i>
-            <div class="advantage-text">
-                <h3>24/7 поддержка</h3>
-                <p>Персональный менеджер всегда на связи</p>
-            </div>
-        </div>
-        <div class="advantage-card">
-            <i class="fas fa-shield-alt"></i>
-            <div class="advantage-text">
-                <h3>Безопасность</h3>
-                <p>Профессиональный экипаж и страховка</p>
-            </div>
-        </div>
-    </div> -->
-</section>
+    </section>
 
-
-    <!-- <section class="about" id="about">
-        <div class="container">
-          <div class="about-content">
-            <h2>О нас</h2>
-            <p class="subtitle">Лучший сервис аренды яхт и катеров в Санкт-Петербурге!</p>
-            <p class="description">
-              Добро пожаловать в YachtRent — ваш надежный партнер в мире морских приключений! Мы предлагаем уникальные возможности для аренды яхт и катеров в Санкт-Петербурге. Вступайте в наши ряды и наслаждайтесь лучшим сервисом на воде.
-            </p>
-            <div class="features">
-              <div class="feature-item">
-                <i class="fas fa-check-circle"></i>
-                <p>Самые выгодные цены в Санкт-Петербурге</p>
-              </div>
-              <div class="feature-item">
-                <i class="fas fa-ship"></i>
-                <p>Самый большой выбор судов без наценок посредников</p>
-              </div>
-              <div class="feature-item">
-                <i class="fas fa-bolt"></i>
-                <p>Скоростные катера для ярких и запоминающихся прогулок</p>
-              </div>
-              <div class="feature-item">
-                <i class="fas fa-heart"></i>
-                <p>Яхты для роскошного или романтичного отдыха</p>
-              </div>
-            </div>
-            <p class="hashtags">
-              #катерарендаспб #арендаяхты #арендаяхтыспб #арендаяхтыпетербург #арендаяхтынасвадьбу #яхтаспб
-            </p>
-          </div>
-        </div>
-      </section> -->
-
-
-
-      <section class="catalog">
+    <section class="catalog">
         <div class="catalog-header">
-            <h2>АРЕНДА КАТЕРА</h2>
-            <a href="catalog.html" class="view-all">Все катера <i class="fas fa-arrow-right"></i></a>
+            <h2>АРЕНДА ЯХТ</h2>
+            <a href="catalog.html" class="view-all" aria-label="Посмотреть все яхты в аренду">Все яхты <i class="fas fa-arrow-right"></i></a>
         </div>
         <p class="catalog-subtitle">Большой выбор прогулочных катеров для аренды по выгодным ценам. Лучшие маршруты по СПб.</p>
     
-        <div class="catalog-list">
+        <div class="catalog-list" itemscope itemtype="https://schema.org/ItemList">
     
-            <!-- Карточка 1 -->
-            <div class="catalog-item">
+            <!-- Карточка HERMES -->
+            <div class="catalog-item" itemscope itemtype="https://schema.org/Product">
                 <div class="catalog-image">
-                    <button class="prev-btn" onclick="prevImage(this)">&#10094;</button>
-                    <img src="yacht-hecmes.jpg" alt="Катер HERMES" class="catalog-photo">
-                    <button class="next-btn" onclick="nextImage(this)">&#10095;</button>
-                    <div class="catalog-tag">12 чел.</div>
-                    <div class="catalog-hit">🔥 Хит</div>
+                    <button class="prev-btn" onclick="prevImage(this)" aria-label="Предыдущая фотография HERMES">&#10094;</button>
+                    <img src="yacht-hecmes.jpg" alt="Яхта HERMES - 12 человек, 19 метров" class="catalog-photo" itemprop="image">
+                    <button class="next-btn" onclick="nextImage(this)" aria-label="Следующая фотография HERMES">&#10095;</button>
+                    <div class="catalog-tag"><b>12</b> чел.</div>
+                    <div class="catalog-hit"><b>19</b> м</div>
                 </div>
                 <div class="catalog-info">
-                    <h3>HERMES</h3>
-                    <p class="catalog-price">от <span>30000</span> ₽/час</p>
+                    <h3 itemprop="name">HERMES</h3>
+                    <p class="catalog-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                        <span itemprop="price">30000</span> ₽/час
+                        <meta itemprop="priceCurrency" content="RUB">
+                    </p>
                     <div class="catalog-buttons">
-                        <a href="HERMES.html" class="btn-details">Подробнее <i class="fas fa-arrow-right"></i></a>
-                        <a href="#" class="btn-rent">Арендовать <i class="fas fa-arrow-right"></i></a>
+                        <a href="HERMES.html" class="btn-details" itemprop="url">Подробнее</a>
+                        <a href="#" class="btn-rent">Арендовать</a>
                     </div>
-                    <div class="catalog-features">
-                        <span>🎵 Музыка: Bluetooth + сабвуфер</span>
-                        <span>🛏️ Каюты с обогревом</span>
-                        <span>⛱️ Флайбридж + зона загара</span>
-                        <span>❄️ Холодильник + лед</span>
-                        <span>🍳 Гриль, плита (по запросу)</span>
+                    <div class="catalog-features" itemprop="description">
+                        <span>🎵 Аудиосистема + сабвуфер, Bluetooth</span>
+                        <span>🛋 Флайбридж с диванами</span>
+                        <span>☀ Носовая часть для загара</span>
+                        <span>🛏 4 каюты</span>
+                        <span>🚿 2 туалета, 2 душа</span>
+                        <span>❄ Холодильник</span>
+                        <span>🧊 Ледогенератор</span>
+                        <span>🍽 Газовая плита, чайник, гриль</span>
+                        <span>🥂 Бокалы, штопор, посуда</span>
                     </div>
                 </div>
             </div>
-            
+    
             <!-- Карточка ECLIPSE -->
-            <div class="catalog-item">
+            <div class="catalog-item" itemscope itemtype="https://schema.org/Product">
                 <div class="catalog-image">
-                    <button class="prev-btn" onclick="prevImage(this)">&#10094;</button>
-                    <img src="ECLIPSE.jpg" alt="Катер ECLIPSE" class="catalog-photo">
-                    <button class="next-btn" onclick="nextImage(this)">&#10095;</button>
+                    <button class="prev-btn" onclick="prevImage(this)" aria-label="Предыдущая фотография ECLIPSE">&#10094;</button>
+                    <img src="ECLIPSE.jpg" alt="Яхта ECLIPSE - 10 человек, 16 метров" class="catalog-photo" itemprop="image">
+                    <button class="next-btn" onclick="nextImage(this)" aria-label="Следующая фотография ECLIPSE">&#10095;</button>
                     <div class="catalog-tag">10 чел.</div>
+                    <div class="catalog-hit">16 м</div>
                 </div>
                 <div class="catalog-info">
-                    <h3>ECLIPSE</h3>
-                    <p class="catalog-price">от <span>15000</span> ₽/час</p>
+                    <h3 itemprop="name">ECLIPSE</h3>
+                    <p class="catalog-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                        <span itemprop="price">15000</span> ₽/час
+                        <meta itemprop="priceCurrency" content="RUB">
+                    </p>
                     <div class="catalog-buttons">
-                        <a href="ECLIPSE.html" class="btn-details">Подробнее <i class="fas fa-arrow-right"></i></a>
-                        <a href="#" class="btn-rent">Арендовать <i class="fas fa-arrow-right"></i></a>
+                        <a href="ECLIPSE.html" class="btn-details" itemprop="url">Подробнее</a>
+                        <a href="#" class="btn-rent">Арендовать</a>
                     </div>
-                    <div class="catalog-features">
+                    <div class="catalog-features" itemprop="description">
                         <span>🛏️ 3 каюты + детская зона</span>
                         <span>⛱️ Флайбридж + зона загара</span>
                         <span>🎵 Музыка: колонки + Bluetooth</span>
@@ -182,24 +220,27 @@
                     </div>
                 </div>
             </div>
-            
+    
             <!-- Карточка Velvette -->
-            <div class="catalog-item">
+            <div class="catalog-item" itemscope itemtype="https://schema.org/Product">
                 <div class="catalog-image">
-                    <button class="prev-btn" onclick="prevImage(this)">&#10094;</button>
-                    <img src="VELVETTE.jpg" alt="Катер Velvette" class="catalog-photo">
-                    <button class="next-btn" onclick="nextImage(this)">&#10095;</button>
+                    <button class="prev-btn" onclick="prevImage(this)" aria-label="Предыдущая фотография Velvette">&#10094;</button>
+                    <img src="VELVETTE.jpg" alt="Катер Velvette - 7 человек, 10 метров" class="catalog-photo" itemprop="image">
+                    <button class="next-btn" onclick="nextImage(this)" aria-label="Следующая фотография Velvette">&#10095;</button>
                     <div class="catalog-tag">7 чел.</div>
-                    <div class="catalog-hit">✨ Новинка</div>
+                    <div class="catalog-hit">10 м</div>
                 </div>
                 <div class="catalog-info">
-                    <h3>Катер Velvette</h3>
-                    <p class="catalog-price">от <span>8000</span> ₽/час</p>
+                    <h3 itemprop="name">Катер Velvette</h3>
+                    <p class="catalog-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                        <span itemprop="price">8000</span> ₽/час
+                        <meta itemprop="priceCurrency" content="RUB">
+                    </p>
                     <div class="catalog-buttons">
-                        <a href="Velvette.html" class="btn-details">Подробнее <i class="fas fa-arrow-right"></i></a>
-                        <a href="#" class="btn-rent">Арендовать <i class="fas fa-arrow-right"></i></a>
+                        <a href="Velvette.html" class="btn-details" itemprop="url">Подробнее</a>
+                        <a href="#" class="btn-rent">Арендовать</a>
                     </div>
-                    <div class="catalog-features">
+                    <div class="catalog-features" itemprop="description">
                         <span>🎵 Hi-End аудиосистема</span>
                         <span>🍷 Мини-бар</span>
                         <span>🌊 Панорамный вид</span>
@@ -209,180 +250,176 @@
                     </div>
                 </div>
             </div>
-
-            <style>
-                .catalog-item {
-    display: flex;
-    flex-direction: column;
-    background: #f5f5f5;
-    border-radius: 10px;
-    overflow: hidden;
-    transition: transform 0.3s ease;
-}
-
-.catalog-item:hover {
-    transform: scale(1.02);
-}
-
-.catalog-image {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.catalog-photo {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 8px;
-    transition: opacity 0.3s ease;
-}
-
-/* Стрелки */
-.prev-btn, .next-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 50%;
-    font-size: 1.5rem;
-    transition: background 0.3s ease;
-}
-
-.prev-btn:hover, .next-btn:hover {
-    background: rgba(0, 0, 0, 0.8);
-}
-
-.prev-btn {
-    left: 10px;
-}
-
-.next-btn {
-    right: 10px;
-}
-            </style>
-
-        <!-- Всплывающее окно бронирования -->
-<!-- Всплывающее окно бронирования -->
-<div class="booking-popup" id="booking-popup">
-    <div class="booking-content">
-        <button class="booking-close" id="booking-close">✖</button>
-        <h2>ОФОРМИТЬ</h2>
-        <div class="booking-image">
-            <img src="" alt="Яхта" id="booking-boat-img">
+    
         </div>
-        <h3 id="booking-boat-name">Название яхты</h3>
+    </section>
 
-        <form id="booking-form">
+<!-- Всплывающее окно бронирования -->
+<div class="booking-popup" id="booking-popup" itemscope itemtype="https://schema.org/BoatRental">
+    <div class="booking-content">
+        <button class="booking-close" id="booking-close" aria-label="Закрыть форму бронирования">✖</button>
+        <h2 itemprop="name">ОФОРМИТЬ</h2>
+
+        <div class="booking-image">
+            <img src="" alt="Бронирование яхты" id="booking-boat-img" itemprop="image">
+        </div>
+
+        <h3 id="booking-boat-name" itemprop="serviceType">Название яхты</h3>
+
+        <form id="booking-form" method="POST" action="/submit-booking" itemscope itemtype="https://schema.org/Action">
+            <meta itemprop="instrument" content="Онлайн-заявка">
             <div class="booking-inputs">
-                <input type="text" id="name" placeholder="Иван" required>
-                <input type="tel" id="phone" placeholder="+79819999919" required>
-                <textarea id="comment" placeholder="Берем на 5 человек"></textarea>
+                <input type="text" id="name" placeholder="Иван" required itemprop="agent" aria-label="Введите имя">
+                <input type="tel" id="phone" placeholder="+79819999919" required itemprop="telephone" aria-label="Введите номер телефона">
+                <textarea id="comment" placeholder="Берем на 5 человек" itemprop="description" aria-label="Введите комментарий"></textarea>
             </div>
+
             <div class="booking-checkbox">
-                <input type="checkbox" id="policy">
-                <label for="policy">Согласен с политикой конфиденциальности</label>
+                <input type="checkbox" id="policy" required>
+                <label for="policy">Согласен с <a href="политика.pdf" target="_blank" rel="noopener nofollow">политикой конфиденциальности</a></label>
             </div>
-            <button type="submit" id="submit-btn" disabled>Отправить заявку</button>
+
+            <button type="submit" id="submit-btn" disabled itemprop="potentialAction" aria-label="Отправить заявку на аренду">Отправить заявку</button>
         </form>
     </div>
 </div>
 
 <!-- Затемняющий фон -->
-<div class="popup-overlay" id="popup-overlay"></div>
+<div class="popup-overlay" id="popup-overlay" aria-hidden="true"></div>
     </section>
 
 
 
-    <section class="reviews">
+    <section id="reviews" class="reviews" itemscope itemtype="https://schema.org/Service">
+        <meta itemprop="name" content="Аренда яхт в Санкт-Петербурге">
+        <meta itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
+        <meta itemprop="ratingValue" content="5">
+        <meta itemprop="reviewCount" content="5">
+    
         <h2 class="reviews-title">Отзывы наших клиентов</h2>
-        
+    
         <div class="reviews-slider">
             <div class="reviews-container">
-                <div class="review">
-                    <p class="review-comment">Арендовывали,яхту с друзьями для мероприятия, договорились с исполнителем быстро, яхта большая, все очень красиво и удобно, персонал замечательный, отлично посидели все прошло на высшем уровне, спасибо большое!</p>
-                    <p class="review-name">— Екатерина Казначеева</p>
-                    <p class="review-rating">⭐⭐⭐⭐⭐</p>
-                </div>
-                
-                <div class="review">
-                    <p class="review-comment">Арендовала огромную яхту за всего 30 000 в час — фантастическая цена для такого размера! Дружелюбный коллектив, отличный капитан и быстрая бронь. Яхта чистая и удобная, музыка громкая, отлично повеселились. Пледы для комфорта — приятный бонус! Рекомендую!</p>
-                    <p class="review-name">— Эмили Шоикона</p>
-                    <p class="review-rating">⭐⭐⭐⭐⭐</p>
+                <!-- Отзыв 1 -->
+                <div class="review" itemscope itemtype="https://schema.org/Review">
+                    <p class="review-comment" itemprop="reviewBody">Арендовывали яхту с друзьями для мероприятия, договорились с исполнителем быстро, яхта большая, все очень красиво и удобно, персонал замечательный, отлично посидели, все прошло на высшем уровне, спасибо большое!</p>
+                    <p class="review-name" itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">— Екатерина Казначеева</span></p>
+                    <p class="review-rating" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+                        <meta itemprop="ratingValue" content="5">⭐⭐⭐⭐⭐
+                    </p>
                 </div>
     
-                <div class="review">
-                    <p class="review-comment">Арендовали яхту на праздник, и остались довольны всем коллективом. Цена низкая за час, так ещё и довольно дружелюбный коллектив, в виде капитана с помощником. Рекомендуем!!!</p>
-                    <p class="review-name">— Матвей Пилсудский</p>
-                    <p class="review-rating">⭐⭐⭐⭐⭐</p>
+                <!-- Отзыв 2 -->
+                <div class="review" itemscope itemtype="https://schema.org/Review">
+                    <p class="review-comment" itemprop="reviewBody">Арендовала огромную яхту за всего 30 000 в час — фантастическая цена для такого размера! Дружелюбный коллектив, отличный капитан и быстрая бронь. Яхта чистая и удобная, музыка громкая, отлично повеселились. Пледы для комфорта — приятный бонус! Рекомендую!</p>
+                    <p class="review-name" itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">— Эмили Шоикона</span></p>
+                    <p class="review-rating" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+                        <meta itemprop="ratingValue" content="5">⭐⭐⭐⭐⭐
+                    </p>
                 </div>
     
-                <div class="review">
-                    <p class="review-comment">Бронировала яхту на день рождения сестры. Гостям и самой имениннице все очень понравилось! Было очень просторно и уютно, дружелюбный коллектив.</p>
-                    <p class="review-name">— Анна</p>
-                    <p class="review-rating">⭐⭐⭐⭐⭐</p>
+                <!-- Отзыв 3 -->
+                <div class="review" itemscope itemtype="https://schema.org/Review">
+                    <p class="review-comment" itemprop="reviewBody">Арендовали яхту на праздник, и остались довольны всем коллективом. Цена низкая за час, так ещё и довольно дружелюбный коллектив, в виде капитана с помощником. Рекомендуем!!!</p>
+                    <p class="review-name" itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">— Матвей Пилсудский</span></p>
+                    <p class="review-rating" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+                        <meta itemprop="ratingValue" content="5">⭐⭐⭐⭐⭐
+                    </p>
                 </div>
     
-                <div class="review">
-                    <p class="review-comment">Брали в аренду яхту у этой команды. Всё супер! Шикарная яхта по доступной цене, у других видела дороже. Прекрасный коллектив и дружелюбный капитан. Все - профессионалы своего дела! С друзьями удобно разместились, на яхте очень чисто и уютно. На борту нашлось абсолютно всё, что нужно было. Очень советую!</p>
-                    <p class="review-name">— Дарья</p>
-                    <p class="review-rating">⭐⭐⭐⭐⭐</p>
+                <!-- Отзыв 4 -->
+                <div class="review" itemscope itemtype="https://schema.org/Review">
+                    <p class="review-comment" itemprop="reviewBody">Бронировала яхту на день рождения сестры. Гостям и самой имениннице все очень понравилось! Было очень просторно и уютно, дружелюбный коллектив.</p>
+                    <p class="review-name" itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">— Анна</span></p>
+                    <p class="review-rating" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+                        <meta itemprop="ratingValue" content="5">⭐⭐⭐⭐⭐
+                    </p>
+                </div>
+    
+                <!-- Отзыв 5 -->
+                <div class="review" itemscope itemtype="https://schema.org/Review">
+                    <p class="review-comment" itemprop="reviewBody">Брали в аренду яхту у этой команды. Всё супер! Шикарная яхта по доступной цене, у других видела дороже. Прекрасный коллектив и дружелюбный капитан. Все - профессионалы своего дела! С друзьями удобно разместились, на яхте очень чисто и уютно. На борту нашлось абсолютно всё, что нужно было. Очень советую!</p>
+                    <p class="review-name" itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">— Дарья</span></p>
+                    <p class="review-rating" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+                        <meta itemprop="ratingValue" content="5">⭐⭐⭐⭐⭐
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
 
-    <footer class="company-footer">
+    <footer id="contacts" class="company-footer" itemscope itemtype="https://schema.org/LocalBusiness">
+        <meta itemprop="name" content="Судоходная компания BREEZE">
+        <meta itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+        <meta itemprop="addressLocality" content="Санкт-Петербург, Россия">
+        <meta itemprop="foundingDate" content="2014">
+        <meta itemprop="url" content="https://zabor-178.ru">
+        <meta itemprop="logo" content="https://zabor-178.ru/logo.png">
+        <meta itemprop="sameAs" content="https://t.me/breeze_yachts">
+        <meta itemprop="sameAs" content="https://wa.me/79657974679">
+        <meta itemprop="sameAs" content="tel:+79657974679">
+        
         <div class="footer-content">
             <!-- Логотип -->
             <div class="footer-brand">
-                <h2 class="logo-text">BREEZE</h2>
-                <p class="company-description">Судоходная компания BREEZE</p>
+                <h2 class="logo-text" itemprop="name">BREEZE</h2>
+                <p class="company-description" itemprop="description">Судоходная компания BREEZE</p>
             </div>
     
             <!-- Локации -->
             <div class="locations">
                 <div class="location-item">
-                    <span class="city">Санкт-Петербург</span>
+                    <span class="city" itemprop="addressLocality">Санкт-Петербург</span>
                     <span class="separator">|</span>
-                    <span class="established">est. 2014</span>
+                    <span class="established" itemprop="foundingDate">est. 2014</span>
                 </div>
-                <!-- <div class="location-item">
-                    <span class="city">Дубай</span>
-                    <span class="separator">|</span>
-                    <span class="established">est. 2024</span>
-                </div> -->
             </div>
     
             <!-- Социальные иконки (новая версия) -->
             <div class="social-icons-new">
-                <a href="#" class="social-link whatsapp">
+                <a href="https://wa.me/79657974679" class="social-link whatsapp" itemprop="sameAs">
                     <i class="fab fa-whatsapp"></i>
                 </a>
-                <a href="#" class="social-link telegram">
+                <a href="https://t.me/breeze_yachts" class="social-link telegram" itemprop="sameAs">
                     <i class="fab fa-telegram"></i>
                 </a>
-                <a href="#" class="social-link phone">
+                <a href="tel:+79657974679" class="social-link phone" itemprop="telephone">
                     <i class="fas fa-phone"></i>
                 </a>
             </div>
     
             <!-- Политика конфиденциальности -->
             <div class="footer-legal">
-                <a href="/privacy-policy" class="privacy-link">
+                <a href="/privacy-policy" class="privacy-link" itemprop="url">
                     Политика конфиденциальности
                 </a>
             </div>
         </div>
     </footer>
-
-
-<script src="script.js"></script>
-</body>
-</html>
+    
+    <!-- JSON-LD для Google -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Судоходная компания BREEZE",
+        "image": "https://zabor-178.ru/logo.png",
+        "url": "https://zabor-178.ru",
+        "telephone": "+79657974679",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Санкт-Петербург, Россия"
+        },
+        "foundingDate": "2014",
+        "sameAs": [
+            "https://wa.me/79657974679",
+            "https://t.me/breeze_yachts",
+            "tel:+79657974679"
+        ]
+    }
+    </script>
+    
+    <script src="script.js"></script>
+    </body>
+    </html>

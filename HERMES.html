@@ -156,113 +156,114 @@
 }
 
 .spec-tag {
-    background: linear-gradient(-45deg, #b8860b, #d4af37, #e8c86d, #b8860b);
+    background: rgb(122,215,178);
+    background: linear-gradient(74deg, rgba(122,215,178,1) 0%, rgba(129,222,242,1) 100%);
     background-size: 300% 300%;
     color: white;
-    padding: 4px 10px; /* Сделал компактнее */
-    border-radius: 10px; /* Чуть меньше закругление */
-    font-size: 14px; /* Сделал текст меньше */
+    padding: 4px 12px; /* Чуть шире для лучшей читабельности */
+    border-radius: 8px; /* Уменьшено для аккуратности */
+    font-size: 14px;
     font-weight: bold;
     text-transform: uppercase;
     transition: 0.5s ease-in-out;
-    animation: waterFlow 4s infinite linear;
+    animation: smoothFlow 4s infinite linear;
+    box-shadow: 0px 2px 8px rgba(122, 215, 178, 0.5);
 }
 
-@keyframes waterFlow {
+/* Анимация плавного движения градиента */
+@keyframes smoothFlow {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
 
-        .section-title {
-            font-size: 20px;
-            color: #1a1a1a;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-            margin: 25px 0;
-        }
+/* Эффект при наведении */
+.spec-tag:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 4px 12px rgba(129, 222, 242, 0.6);
+}
 
-        .amenities-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            margin-bottom: 30px;
-        }
+.section-title {
+    font-size: 20px;
+    color: #1a1a1a;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin: 25px 0;
+}
 
-        .amenity {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 15px;
-        }
+.amenities-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 30px;
+}
 
-        .amenity i {
-            color: #009688;
-        }
-
-        .price-section {
+.amenity {
     display: flex;
     align-items: center;
+    gap: 10px;
+    font-size: 15px;
+}
+
+.amenity i {
+    color: #009688;
+    width: 20px; /* Фиксированная ширина для иконок, чтобы текст выравнивался */
+    text-align: center;
+}
+
+.price-section {
+    display: flex;
     justify-content: center;
-    gap: 15px;
-    margin: 25px 0;
-    flex-wrap: nowrap;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 30px auto;
+    max-width: 640px;
 }
 
 .price-box {
+    background: linear-gradient(74deg, rgba(122, 215, 178, 1) 16%, rgba(60, 175, 199, 1) 89%);
+    color: white;
+    padding: 16px 36px;
+    border-radius: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 22px;
+    transition: all 0.3s ease;
+    box-shadow: 0px 8px 18px rgba(60, 175, 199, 0.6);
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 12px 24px; /* Ещё больше увеличили отступы */
-    border-radius: 45px; /* Закругление сохранили */
-    font-size: 20px; /* Увеличили шрифт */
-    font-weight: bold;
+    min-width: 260px;
     text-align: center;
-    min-width: 180px; /* Сделали шире */
 }
 
-.price-weekday {
-    background: #f5f2e9;
-    color: #5c5c5c;
-    border: 2px solid #ddd5b9;
-    padding: 10px 20px; /* Увеличенные отступы */
-    border-radius: 45px;
-}
-
-/* ПТ-ВС (золотистый градиент) */
-.price-weekend {
-    background: linear-gradient(45deg, #b8860b, #d4af37);
-    color: white;
-    padding: 10px 20px;
-    border-radius: 45px;
-    transition: background 0.3s ease-in-out;
+.price-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 10px 24px rgba(60, 175, 199, 0.7);
 }
 
 .price-inner {
     background: white;
-    padding: 8px 18px; /* Сделали ещё больше */
-    border-radius: 60px;
-    font-size: 22px; /* Ещё больше увеличили шрифт */
+    padding: 10px 24px;
+    border-radius: 42px;
+    font-size: 28px;
+    margin-left: 12px;
+    color: #0F6587; /* Сделал цвет цифр насыщенным */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     font-weight: bold;
-    color: #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.price-box:hover {
-    transform: scale(1.02);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+.price-inner strong {
+    font-weight: 900;
+    letter-spacing: -0.4px;
+}
+
+.price-box span:first-child {
+    text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    font-size: 24px;
 }
 
 
         /* Стили кнопки "Арендовать" */
-.cta-button {
+        .cta-button {
     width: 100%;
     padding: 16px 22px;
     font-size: 18px;
@@ -273,16 +274,27 @@
     border-radius: 30px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-    background: linear-gradient(45deg, #ffcc00, #e1ad01);
+    background: linear-gradient(74deg, rgba(154,242,207,1) 12%, rgba(60,214,246,1) 93%);
     background-size: 200% 200%;
-    animation: goldShimmer 3s infinite alternate;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    animation: softGlow 3s infinite alternate;
+    box-shadow: 0 4px 10px rgba(60, 214, 246, 0.4);
 }
 
-/* Эффект "живого золота" */
-@keyframes goldShimmer {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 100% 50%; }
+/* Эффект наведения */
+.cta-button:hover {
+    background: linear-gradient(74deg, rgba(60,214,246,1) 12%, rgba(154,242,207,1) 93%);
+    transform: scale(1.05);
+    box-shadow: 0px 6px 15px rgba(60, 214, 246, 0.5);
+}
+
+/* Анимация мягкого сияния */
+@keyframes softGlow {
+    0% {
+        box-shadow: 0 4px 10px rgba(60, 214, 246, 0.3);
+    }
+    100% {
+        box-shadow: 0 6px 15px rgba(154, 242, 207, 0.5);
+    }
 }
 
 /* Эффект нажатия */
@@ -303,27 +315,69 @@
 
 
         /* Блок описания яхты */
-.yacht-description {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+/* Общий стиль */
+/* Общий стиль */
+/* Общий стиль */
+/* Общий стиль */
+/* Общий стиль */
+.yacht-features,
+.yacht-safety {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Уменьшили расстояние между элементами */
 }
 
-.yacht-description h2 {
-    font-size: 24px;
-    color: #b8860b;
-    text-align: center;
-    margin-bottom: 15px;
-}
-
-.yacht-description p {
+/* Выровненные элементы списка */
+.yacht-features li,
+.yacht-safety li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
     font-size: 16px;
-    color: #333;
-    line-height: 1.5;
-    text-align: justify;
+    color: #222;
+    padding: 6px 0;
+    border-bottom: none; /* Убрали серые блоки */
+}
+
+/* Иконки */
+.yacht-features .icon,
+.yacht-safety .icon {
+    font-size: 18px;
+    min-width: 28px;
+    text-align: center;
+}
+
+/* Жирные заголовки в строке */
+.yacht-features li b,
+.yacht-safety li b {
+    font-weight: 600;
+    min-width: 180px; /* Одинаковая ширина заголовков */
+}
+
+/* Ограничения */
+.yacht-restrictions {
+    font-size: 16px;
+    color: #d10000;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* 📱 Адаптация для мобильных */
+@media (max-width: 768px) {
+    .yacht-features li,
+    .yacht-safety li {
+        font-size: 14px;
+        gap: 8px;
+    }
+
+    .yacht-features li b,
+    .yacht-safety li b {
+        min-width: 140px; /* Чуть уже для мобильных */
+    }
 }
 
 /* Блок тарифов */
@@ -593,6 +647,18 @@
         height: 50px;
     }
 }
+
+
+.rental-info {
+    margin-bottom: 20px;
+    padding-bottom: 20px; /* Увеличивает расстояние между блоком и кнопкой */
+}
+
+.container { 
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Регулирует расстояние между элементами */
+}
     </style>
 
     <nav class="navbar">
@@ -600,8 +666,8 @@
             <a href="index.html" class="logo">BREEZE</a>
             
             <ul class="nav-menu">
-                <li><a href="#">Главный экран</a></li>
-                <li><a href="#">Каталог яхт</a></li>
+                <li><a href="index.html">Главный экран</a></li>
+                <li><a href="catalog.html">Каталог яхт</a></li>
                 <li><a href="#">Отзывы</a></li>
                 <li><a href="#">Контакты</a></li>
             </ul>
@@ -660,30 +726,26 @@
             </div>
 
             <div class="price-section">
-                <div class="price-box price-weekday">
-                    <span>ПН-ЧТ</span>
-                    <span class="price-inner">ОТ <strong>30 000</strong> ₽/ЧАС</span>
-                </div>
-                <div class="price-box price-weekend">
-                    <span>ПТ-ВС</span>
-                    <span class="price-inner">ОТ <strong>35 000</strong> ₽/ЧАС</span>
-                </div>
-            </div>
+    <div class="price-box price-unified">
+        <span>ПН-ВС</span>
+        <span class="price-inner"><strong>30 000</strong> ₽/ЧАС</span>
+    </div>
+</div>
 
-            <h2 class="section-title">На борту:</h2>
-            <div class="amenities-grid">
-                <div class="amenity"><i class="fas fa-music"></i> Музыка: колонки + сабвуфер, Bluetooth</div>
-                <div class="amenity"><i class="fas fa-umbrella"></i> Пледы, обогрев каюты и палубы</div>
-                <div class="amenity"><i class="fas fa-bed"></i> Лежаки</div>
-                <div class="amenity"><i class="fas fa-snowflake"></i> Кондиционер</div>
-                <div class="amenity"><i class="fas fa-fire"></i> Печка</div>
-                <div class="amenity"><i class="fas fa-ice-cream"></i> Холодильник</div>
-                <div class="amenity"><i class="fas fa-snowflake"></i> Ледогенератор (доп. услуга)</div>
-                <div class="amenity"><i class="fas fa-fire"></i> Газовая плита, чайник, гриль (доп. услуга)</div>
-                <div class="amenity"><i class="fas fa-glass-martini"></i> Бокалы, штопор, посуда (доп. услуга)</div>
-                <div class="amenity"><i class="fas fa-life-ring"></i> Жилеты, аптечка</div>
-                <div class="amenity"><i class="fas fa-user-tie"></i> Капитан и стюард</div>
-            </div>
+<h2 class="section-title">На борту:</h2>
+<div class="amenities-list">
+    <div class="amenity"><i class="fas fa-music"></i> Музыка: колонки + сабвуфер, Bluetooth</div>
+    <div class="amenity"><i class="fas fa-umbrella"></i> Пледы, обогрев каюты и палубы</div>
+    <div class="amenity"><i class="fas fa-bed"></i> Лежаки</div>
+    <div class="amenity"><i class="fas fa-snowflake"></i> Кондиционер</div>
+    <div class="amenity"><i class="fas fa-fire"></i> Печка</div>
+    <div class="amenity"><i class="fas fa-ice-cream"></i> Холодильник</div>
+    <div class="amenity"><i class="fas fa-snowflake"></i> Ледогенератор (доп. услуга)</div>
+    <div class="amenity"><i class="fas fa-fire"></i> Газовая плита, чайник, гриль (доп. услуга)</div>
+    <div class="amenity"><i class="fas fa-glass-martini"></i> Бокалы, штопор, посуда (доп. услуга)</div>
+    <div class="amenity"><i class="fas fa-life-ring"></i> Жилеты, аптечка</div>
+    <div class="amenity"><i class="fas fa-user-tie"></i> Капитан и стюард</div>
+</div>
 
             <div class="rental-info">
                 <p>Минимальное время аренды: <strong>1 час</strong></p>
@@ -703,47 +765,327 @@
 
             <div class="location">
                 <i class="fas fa-map-marker-alt"></i>
-                Причал Мойка 17
+                📍Яхт клуб Бриз, Уральская 13У
             </div>
         </div>
+
     </section>
 
 
     <section class="yacht-description">
-        <h2>Премиальная яхта HERMES</h2>
-        <p class="yacht-intro">
-            Погрузитесь в атмосферу роскоши и комфорта на борту 19-метровой яхты **HERMES**.
-            Это идеальное место для **элитного отдыха, романтического вечера или деловой встречи**.
+        <h2 class="compact-title">🛥️ Премиальная яхта HERMES</h2>
+    
+        <p class="compact-intro">
+            Погрузитесь в атмосферу комфорта и роскоши на борту <b>19-метровой яхты HERMES</b>. 
+            Идеальное место для <b>элитного отдыха, деловых встреч и торжественных мероприятий</b>.
         </p>
     
-        <h3>🔥 ДЛЯ ВАС НА БОРТУ:</h3>
-        <ul class="yacht-features">
-            <li>🛟 **Вместимость:** до 12 гостей</li>
-            <li>🛏 **Комфортные зоны:** 4 каюты, открытая палуба, флайбридж с диванами</li>
-            <li>☀ **Зона загара:** носовая часть яхты и купальная площадка</li>
-            <li>🚿 **Санузлы:** 2 туалета, 2 душевые</li>
-            <li>🎶 **Музыка:** колонки + сабвуфер, поддержка Bluetooth</li>
-            <li>🛋 **Дополнительный комфорт:** пледы, обогрев каюты и палубы</li>
-            <li>🛏 **Лежаки для отдыха**</li>
-            <li>❄ **Холодильник + ледогенератор (доп. услуга)**</li>
-            <li>🍽 **Кухонное оборудование:** газовая плита, чайник, гриль (доп. услуга)</li>
-            <li>🥂 **Бокалы, штопор, посуда (доп. услуга)**</li>
-            <li>🦺 **Безопасность:** жилеты, аптечка</li>
-            <li>👨‍✈️ **Экипаж:** капитан и стюард</li>
-        </ul>
+        <div class="compact-grid">
+            <div class="compact-block">
+                <h3>✨ Удобства</h3>
+                <ul class="compact-list">
+                    <li><span class="sm-icon">🛟</span><b>Вместимость:</b>&nbsp;до 12 гостей</li>
+<li><span class="sm-icon">🛏️</span><b>Комнаты:</b>&nbsp;4 каюты, флайбридж</li>
+<li><span class="sm-icon">☀</span><b>Загар:</b>&nbsp;носовая часть, купальная площадка</li>
+<li><span class="sm-icon">🚿</span><b>Санузлы:</b>&nbsp;2 туалета, 2 душевые</li>
+<li><span class="sm-icon">🎶</span><b>Аудио:</b>&nbsp;Bluetooth + сабвуфер</li>
+<li><span class="sm-icon">🛋️</span><b>Удобства:</b>&nbsp;пледы, обогрев</li>
+<li><span class="sm-icon">❄️</span><b>Холодильник:</b>&nbsp;с ледогенератором</li>
+<li><span class="sm-icon">🍽️</span><b>Кухня:</b>&nbsp;плита, чайник, гриль</li>
+<li><span class="sm-icon">🥂</span><b>Посуда:</b>&nbsp;бокалы, сервировка</li>
+<li><span class="sm-icon">🦺</span><b>Безопасность:</b>&nbsp;жилеты, аптечка</li>
+                </ul>
+            </div>
     
-        <h3>🚫 ЗАПРЕЩЕНО НА БОРТУ:</h3>
-        <p class="yacht-restrictions">
-            **Кальян, красное вино, клубника, черника, шоколад** – из-за дорогого покрытия яхты.
-        </p>
-    
-        <h3>⚓ НАДЕЖНОСТЬ И БЕЗОПАСНОСТЬ:</h3>
-        <ul class="yacht-safety">
-            <li>✅ Деятельность лицензирована</li>
-            <li>✅ Экипаж с **высшим профильным образованием** и большим опытом</li>
-            <li>✅ Все нормы и правила **техники безопасности** строго соблюдены</li>
-        </ul>
+            <div class="rules-container">
+                <!-- Блок Разрешено -->
+                <div class="rules-block allowed">
+                    <h3 class="rules-title">✅ Разрешено</h3>
+                    <ul class="rules-list">
+                        <li><span class="icon">✔️</span> Еда и напитки</li>
+                        <li><span class="icon">✔️</span> Электронки и IQOS</li>
+                    </ul>
+                </div>
+            
+                <!-- Блок Запрещено -->
+                <div class="rules-block prohibited">
+                    <h3 class="rules-title">🚫 Запрещено</h3>
+                    <ul class="rules-list">
+                        <li><span class="icon">❌</span> Кальян, сигареты</li>
+                        <li><span class="icon">❌</span> Красное вино</li>
+                        <li><span class="icon">❌</span> Продукты, оставляющие пятна (голубика, черника, черешня и др.)</li>
+                    </ul>
+                </div>
+            
+                <!-- Блок Безопасность -->
+                <div class="rules-block safety">
+                    <h3 class="rules-title">⚓ Безопасность</h3>
+                    <ul class="rules-list">
+                        <li><span class="icon">✅</span> Лицензированная деятельность</li>
+                        <li><span class="icon">🎓</span> Опытный экипаж</li>
+                        <li><span class="icon">📜</span> Соблюдение норм безопасности</li>
+                    </ul>
+                </div>
+            </div>
+            </div>
+        </div>
     </section>
+    <style>
+
+
+
+.rules-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px; /* Увеличиваем отступы между блоками */
+    max-width: 95%; /* Немного расширяем контейнер */
+    margin: auto;
+}
+
+.rules-block {
+    background: #ffe6e6;
+    border-left: 6px solid #d9534f;
+    padding: 18px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    max-width: 500px; /* Расширил блок */
+    margin: 0 auto;
+}
+
+.rules-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #d9534f;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.rules-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.rules-list li {
+    display: flex;
+    align-items: flex-start;
+    font-size: 16px;
+    margin-bottom: 6px;
+    line-height: 1.5;
+}
+
+.icon {
+    font-size: 18px;
+    margin-right: 10px;
+    min-width: 24px;
+}
+
+/* Делаем адаптацию для телефонов */
+@media (max-width: 480px) {
+    .rules-block {
+        max-width: 95%; /* Даем блокам больше пространства на мобильных */
+    }
+
+    .rules-title {
+        font-size: 1.3rem;
+    }
+
+    .rules-list li {
+        font-size: 1rem; /* Чуть уменьшаем размер на маленьких экранах */
+    }
+
+    .icon {
+        font-size: 1.4rem;
+    }
+}
+
+
+.rules-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Выравниваем текст по левому краю */
+    max-width: 95%; /* Чуть увеличим ширину, но не слишком */
+    padding: 10px 15px; /* Оптимальные отступы */
+    font-size: 0.9rem; /* Немного уменьшим размер шрифта */
+    line-height: 1.4; /* Делаем расстояние между строками приятным */
+}
+
+.rules-item {
+    display: flex;
+    align-items: center; /* Выравниваем иконки и текст */
+    gap: 10px; /* Отступ между иконкой и текстом */
+}
+
+.rules-item:last-child {
+    flex-wrap: wrap; /* Позволяет длинному тексту красиво переноситься */
+    max-width: 100%; /* Запрещаем сжатие блока */
+}
+
+.rules-item span {
+    flex-shrink: 0; /* Иконка не сжимается */
+    font-size: 1.2rem; /* Немного увеличим размер иконок */
+    min-width: 25px; /* Чтобы иконка всегда была ровно */
+}
+
+.rules-list li .icon {
+    flex-shrink: 0; /* Запрещаем иконке сжиматься */
+    width: 22px; /* Оптимальный размер для четкого выравнивания */
+    height: 22px;
+    text-align: center;
+}
+
+.rules-list li .text {
+    flex-grow: 1; /* Растягиваем текст, чтобы он ровно вставал */
+    max-width: 100%; /* Запрещаем выходить за пределы блока */
+    overflow: hidden; /* Обрезаем длинный текст */
+    text-overflow: ellipsis; /* Добавляем ... если текст слишком длинный */
+}
+
+/* Иконки */
+.icon {
+    font-size: 1.2rem;
+    min-width: 25px;
+    display: inline-block;
+    margin-right: 6px;
+    text-align: center;
+}
+
+/* Цвета и оформление */
+.allowed {
+    background: #e6f4ea;
+    border-left: 4px solid #2f855a;
+    padding: 8px 12px; /* Уменьшил отступы */
+}
+
+.prohibited {
+    background: #ffebee;
+    border-left: 4px solid #b71c1c;
+    padding: 8px 12px; /* Уменьшил отступы */
+}
+
+.safety {
+    background: #e3f2fd;
+    border-left: 4px solid #0d47a1;
+    padding: 8px 12px; /* Уменьшил отступы */
+}
+
+/* Выравнивание синего блока */
+.safety .rules-list li {
+    justify-content: left;
+    text-align: left;
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 768px) {
+    .rules-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .rules-block {
+        width: 90%;
+        max-width: 320px;
+    }
+}
+        .yacht-description {
+    max-width: 800px;
+    margin: 1rem auto;
+    padding: 0 1rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Заголовки */
+.compact-title {
+    font-size: 1.5rem;
+    color: #2d3748;
+    margin: 1rem 0;
+    text-align: center;
+}
+
+.compact-intro {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin: 1rem 0;
+    color: #4a5568;
+}
+
+/* Грид для удобств и ограничений */
+.compact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Заголовки блоков */
+.compact-block h3 {
+    font-size: 1.1rem;
+    color: #2b6cb0;
+    margin: 1rem 0 0.5rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 2px solid #cbd5e0;
+}
+
+/* Общий стиль списков */
+.compact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.compact-list li {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    padding: 0.4rem 0;
+    color: #4a5568;
+}
+
+/* Иконки в списках */
+.sm-icon {
+    font-size: 1rem;
+    margin-right: 0.7rem;
+    min-width: 25px;
+}
+
+/* Блок запретов */
+.compact-restrictions {
+    background: none;
+    border: none;
+    padding: 0.7rem;
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+    color: #c53030;
+    font-weight: bold;
+}
+
+/* Блок разрешений */
+.compact-allowed {
+    background: none;
+    border: none;
+    padding: 0.7rem;
+    margin: 0.5rem 0 1rem;
+    font-size: 0.9rem;
+    color: #2f855a;
+    font-weight: bold;
+}
+
+/* Адаптация */
+@media (max-width: 480px) {
+    .compact-title {
+        font-size: 1.3rem;
+    }
+
+    .compact-grid {
+        gap: 1rem;
+    }
+
+    .compact-list li {
+        font-size: 0.85rem;
+    }
+}
+    </style>
     
     <!-- <section class="tariff-section">
         <h2>Тарифы</h2>
