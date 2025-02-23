@@ -276,9 +276,9 @@ document.addEventListener("DOMContentLoaded", () => {
         let currentIndex = 0;
 
         const images = {
-            "HERMES": ["yacht-hecmes.jpg", "yacht-hecmes5.jpg", "yacht-hecmes2.jpg", "yacht-hecmes3.jpg", "yacht-hecmes6.jpg", "yacht-hecmes7.jpg", "yacht-hecmes8.jpg", "yacht-hecmes9.jpg", "yacht-hecmes4.jpg", "yacht-hecmes10.jpg"],
-            "ECLIPSE": ["ECLIPSE.jpg", "ECLIPSE1.jpg", "ECLIPSE2.jpg", "ECLIPSE3.jpg", "ECLIPSE4.jpg", "ECLIPSE5.jpg", "ECLIPSE6.jpg", "ECLIPSE7.jpg", "ECLIPSE8.jpg", "ECLIPSE9.jpg", "ECLIPSE10.jpg", "ECLIPSE11.jpg"],
-            "Катер Velvette": ["VELVETTE.jpg", "VELVETTE1.jpg", "VELVETTE2.jpg", "VELVETTE3.jpg", "VELVETTE4.jpg", "VELVETTE5.jpg"]
+            "HERMES": ["yacht-hecmes.jpg", "yacht-hecmes2.jpg", "yacht-hecmes3.jpg", "yacht-hecmes4.jpg"],
+            "ECLIPSE": ["ECLIPSE.jpg", "ECLIPSE1.jpg", "ECLIPSE2.jpg", "ECLIPSE3.jpg", "ECLIPSE4.JPG", "ECLIPSE5.JPG", "ECLIPSE6.JPG", "ECLIPSE7.JPG", "ECLIPSE8.JPG", "ECLIPSE9.JPG", "ECLIPSE10.JPG", "ECLIPSE11.JPG"],
+            "Катер Velvette": ["VELVETTE.jpg", "VELVETTE1.jpg", "VELVETTE2.jpg", "VELVETTE3.jpg"]
         };
 
         if (!images[yachtName] || images[yachtName].length === 0) return;
@@ -308,7 +308,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         updateImage(currentIndex);
     });
+
 });
-
-
 

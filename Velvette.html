@@ -702,19 +702,222 @@
         <button class="close-menu" id="close-menu">✖</button>
     </div>
 
-    <section class="yacht-container">
-        <div class="main-gallery">
-            <img src="VELVETTE.jpg" alt="Яхта Белуга" class="main-image" id="mainImage">
-            <div class="thumbnails-container">
-                <div class="back-arrow" id="backArrow">&#8592;</div> <!-- Стрелка слева от миниатюр -->
-                <div class="thumbnails">
-                    <img src="VELVETTE1.jpg" class="active">
-                    <img src="VELVETTE2.jpg">
-                    <img src="VELVETTE3.jpg">
-                </div>
+    <section class="yacht-slider">
+        <div class="slider-container">
+            <div class="slider-track" id="sliderTrack">
+                <img src="VELVETTE.jpg" class="slider-image">
+                <img src="VELVETTE1.jpg" class="slider-image">
+                <img src="VELVETTE2.jpg" class="slider-image">
+                <img src="VELVETTE3.jpg" class="slider-image">
+                <img src="VELVETTE4.JPG" class="slider-image">
+                <img src="VELVETTE5.JPG" class="slider-image">
             </div>
         </div>
+    
+        <!-- Миниатюры (6 фото в 2 ряда) -->
+        <div class="thumbnails-grid" id="thumbnailsGrid">
+            <img src="VELVETTE.jpg" class="thumbnail" data-index="0">
+            <img src="VELVETTE1.jpg" class="thumbnail" data-index="1">
+            <img src="VELVETTE2.jpg" class="thumbnail" data-index="2">
+            <img src="VELVETTE3.jpg" class="thumbnail" data-index="3">
+            <img src="VELVETTE4.JPG" class="thumbnail" data-index="4">
+            <img src="VELVETTE5.JPG" class="thumbnail" data-index="5">
         </div>
+    </section>
+    
+    <style>
+    /* Основной контейнер */
+    .yacht-slider {
+        text-align: center;
+        max-width: 900px;
+        margin: auto;
+        padding: 20px 0;
+        position: relative;
+        margin-top: 40px;
+    }
+    
+    /* Обертка слайдера */
+    .slider-container {
+        overflow: hidden;
+        width: 100%;
+        max-width: 800px;
+        height: auto;
+        position: relative;
+        touch-action: pan-y;
+    }
+    
+    /* Лента изображений */
+    .slider-track {
+        display: flex;
+        transition: transform 0.4s ease-in-out;
+        will-change: transform;
+    }
+    
+    /* Улучшенное качество изображений */
+    .slider-image {
+        width: 100%;
+        max-width: 800px;
+        height: auto;
+        max-height: 500px;
+        flex-shrink: 0;
+        border-radius: 10px;
+        object-fit: cover;
+        user-select: none;
+        pointer-events: none;
+    }
+    
+    /* Миниатюры (6 фото в 2 ряда) */
+    .thumbnails-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3 колонки для 6 фото */
+        gap: 5px;
+        max-width: 400px;
+        margin: 15px auto;
+    }
+    
+    /* Миниатюры */
+    .thumbnail {
+        width: 90px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: transform 0.2s, opacity 0.2s;
+        border: 2px solid transparent;
+    }
+    
+    /* Выбранное фото */
+    .thumbnail.active {
+        border-color: #4caf50;
+        transform: scale(1.1);
+    }
+    
+    /* Адаптация для мобильных */
+    @media (max-width: 768px) {
+        .slider-container {
+            height: auto;
+        }
+        .slider-image {
+            height: auto;
+            max-height: 300px;
+        }
+        .thumbnails-grid {
+            max-width: 320px;
+        }
+        .thumbnail {
+            width: 70px;
+            height: 50px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .slider-container {
+            height: auto;
+        }
+        .slider-image {
+            height: auto;
+            max-height: 250px;
+        }
+        .thumbnails-grid {
+            max-width: 280px;
+        }
+        .thumbnail {
+            width: 65px;
+            height: 45px;
+        }
+    }
+    </style>
+    
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const sliderTrack = document.getElementById("sliderTrack");
+        const images = document.querySelectorAll(".slider-image");
+        const thumbnails = document.querySelectorAll(".thumbnail");
+    
+        let currentIndex = 0;
+        let startX = 0;
+        let moveX = 0;
+        let isDragging = false;
+    
+        // Функция смены фото
+        function changeSlide(index) {
+            if (index < 0) {
+                currentIndex = images.length - 1;
+            } else if (index >= images.length) {
+                currentIndex = 0;
+            } else {
+                currentIndex = index;
+            }
+    
+            let offset = -currentIndex * 100;
+            sliderTrack.style.transform = `translateX(${offset}%)`;
+    
+            // Подсветка миниатюры
+            thumbnails.forEach(thumb => thumb.classList.remove("active"));
+            if (thumbnails[currentIndex]) {
+                thumbnails[currentIndex].classList.add("active");
+            }
+        }
+    
+        // Начало свайпа
+        sliderTrack.addEventListener("touchstart", function (e) {
+            startX = e.touches[0].clientX;
+            isDragging = true;
+        });
+    
+        // Движение свайпа
+        sliderTrack.addEventListener("touchmove", function (e) {
+            if (!isDragging) return;
+            moveX = e.touches[0].clientX - startX;
+        });
+    
+        // Конец свайпа
+        sliderTrack.addEventListener("touchend", function () {
+            if (!isDragging) return;
+            isDragging = false;
+    
+            if (moveX < -50) {
+                changeSlide(currentIndex + 1); // Свайп влево
+            } else if (moveX > 50) {
+                changeSlide(currentIndex - 1); // Свайп вправо
+            }
+    
+            moveX = 0; // Сбрасываем значение moveX
+        });
+    
+        // Листаем мышкой (ПК)
+        sliderTrack.addEventListener("mousedown", function (e) {
+            startX = e.clientX;
+            isDragging = true;
+        });
+    
+        document.addEventListener("mousemove", function (e) {
+            if (!isDragging) return;
+            moveX = e.clientX - startX;
+        });
+    
+        document.addEventListener("mouseup", function () {
+            if (!isDragging) return;
+            isDragging = false;
+    
+            if (moveX < -50) {
+                changeSlide(currentIndex + 1); // Перетаскивание влево
+            } else if (moveX > 50) {
+                changeSlide(currentIndex - 1); // Перетаскивание вправо
+            }
+    
+            moveX = 0; // Сбрасываем значение moveX
+        });
+    
+        // Клик по миниатюре
+        thumbnails.forEach((thumbnail) => {
+            thumbnail.addEventListener("click", function () {
+                let index = parseInt(thumbnail.getAttribute("data-index"));
+                changeSlide(index);
+            });
+        });
+    });
+    </script>
 
         <div class="yacht-info">
             <div class="yacht-title-container">
@@ -774,36 +977,62 @@
 
 
     <section class="yacht-description">
-        <h2>Комфортная яхта VELVETTE</h2>
-        
-        <p class="yacht-intro">
-            Просторный катер **Velvette** – это идеальный вариант для **весёлой компании, 
-            семейной прогулки или романтического вечера**. Насладитесь красотой Санкт-Петербурга 
+        <h2 class="compact-title">🛥️ Комфортная яхта VELVETTE</h2>
+    
+        <p class="compact-intro">
+            Просторный <b>катер Velvette</b> – это идеальный вариант для <b>весёлой компании, 
+            семейной прогулки или романтического вечера</b>. Насладитесь красотой Санкт-Петербурга 
             с максимальным комфортом!
         </p>
     
-        <h3>🔥 ДЛЯ ВАС НА БОРТУ:</h3>
-        <ul class="yacht-features">
-            <li>🛟 **Вместимость:** до 7 гостей</li>
-            <li>🛏 **Пространство:** 4-спальная каюта</li>
-            <li>☀ **Зона загара:** лежаки на носу катера</li>
-            <li>🛋 **Отдых:** 3 мягких дивана на палубе</li>
-            <li>🎶 **Музыка:** Bluetooth-аудиосистема</li>
-            <li>📲 **Удобства:** зарядка для смартфона</li>
-            <li>🍽 **Мини-кухня:** микроволновка, плита, кофеварка</li>
-            <li>❄ **Холодильник**</li>
-            <li>🚿 **Купальная платформа**</li>
-            <li>🦺 **Безопасность:** спасательные жилеты, пледы</li>
-        </ul>
-
+        <div class="compact-grid">
+            <div class="compact-block">
+                <h3>✨ Удобства</h3>
+                <ul class="compact-list">
+                    <li><span class="sm-icon">🛟</span><b>Вместимость:</b>&nbsp;до 7 гостей</li>
+                    <li><span class="sm-icon">🛏️</span><b>Пространство:</b>&nbsp;4-спальная каюта</li>
+                    <li><span class="sm-icon">☀</span><b>Зона загара:</b>&nbsp;лежаки на носу катера</li>
+                    <li><span class="sm-icon">🛋️</span><b>Отдых:</b>&nbsp;3 мягких дивана на палубе</li>
+                    <li><span class="sm-icon">🎶</span><b>Музыка:</b>&nbsp;Bluetooth-аудиосистема</li>
+                    <li><span class="sm-icon">📲</span><b>Удобства:</b>&nbsp;зарядка для смартфона</li>
+                    <li><span class="sm-icon">🍽️</span><b>Мини-кухня:</b>&nbsp;микроволновка, плита, кофеварка</li>
+                    <li><span class="sm-icon">❄️</span><b>Холодильник</b></li>
+                    <li><span class="sm-icon">🚿</span><b>Купальная платформа</b></li>
+                    <li><span class="sm-icon">🦺</span><b>Безопасность:</b>&nbsp;жилеты, пледы</li>
+                </ul>
+            </div>
     
-        <h3>⚓ НАДЕЖНОСТЬ И БЕЗОПАСНОСТЬ:</h3>
-        <ul class="yacht-safety">
-            <li>✅ **Лицензированная деятельность**</li>
-            <li>✅ **Опытный экипаж** с профильным образованием</li>
-            <li>✅ **Полное соблюдение норм безопасности**</li>
-        </ul>
+            <div class="rules-container">
+                <!-- Блок Разрешено -->
+                <div class="rules-block allowed">
+                    <h3 class="rules-title">✅ Разрешено</h3>
+                    <ul class="rules-list">
+                        <li><span class="icon">✔️</span> Еда и напитки</li>
+                        <li><span class="icon">✔️</span> Электронки и IQOS</li>
+                    </ul>
+                </div>
     
+                <!-- Блок Запрещено -->
+                <div class="rules-block prohibited">
+                    <h3 class="rules-title">🚫 Запрещено</h3>
+                    <ul class="rules-list">
+                        <li><span class="icon">❌</span> Кальян, сигареты</li>
+                        <li><span class="icon">❌</span> Красное вино</li>
+                        <li><span class="icon">❌</span> Продукты, оставляющие пятна (голубика, черника, черешня и др.)</li>
+                    </ul>
+                </div>
+    
+                <!-- Блок Безопасность -->
+                <div class="rules-block safety">
+                    <h3 class="rules-title">⚓ Безопасность</h3>
+                    <ul class="rules-list">
+                        <li><span class="icon">✅</span> Лицензированная деятельность</li>
+                        <li><span class="icon">🎓</span> Опытный экипаж</li>
+                        <li><span class="icon">📜</span> Соблюдение норм безопасности</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </section>
 
 

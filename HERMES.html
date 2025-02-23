@@ -702,19 +702,227 @@
         <button class="close-menu" id="close-menu">✖</button>
     </div>
 
-    <section class="yacht-container">
-        <div class="main-gallery">
-            <img src="yacht-hecmes.jpg" alt="Яхта Белуга" class="main-image" id="mainImage">
-            <div class="thumbnails-container">
-                <div class="back-arrow" id="backArrow">&#8592;</div> <!-- Стрелка слева от миниатюр -->
-                <div class="thumbnails">
-                    <img src="yacht-hecmes2.jpg" class="active">
-                    <img src="yacht-hecmes3.jpg">
-                    <img src="yacht-hecmes4.jpg">
-                </div>
+    <section class="yacht-slider">
+        <div class="slider-container">
+            <div class="slider-track" id="sliderTrack">
+                <img src="yacht-hecmes2.jpg" class="slider-image">
+                <img src="yacht-hecmes3.jpg" class="slider-image">
+                <img src="yacht-hecmes4.jpg" class="slider-image">
+                <img src="yacht-hecmes5.jpg" class="slider-image">
+                <img src="yacht-hecmes6.JPG" class="slider-image">
+                <img src="yacht-hecmes7.JPG" class="slider-image">
+                <img src="yacht-hecmes8.JPG" class="slider-image">
+                <img src="yacht-hecmes9.JPG" class="slider-image">
+                <img src="yacht-hecmes10.JPG" class="slider-image">
             </div>
         </div>
+    
+        <!-- Миниатюры (8 фото в 2 ряда) -->
+        <div class="thumbnails-grid" id="thumbnailsGrid">
+            <img src="yacht-hecmes2.jpg" class="thumbnail" data-index="0">
+            <img src="yacht-hecmes3.jpg" class="thumbnail" data-index="1">
+            <img src="yacht-hecmes4.jpg" class="thumbnail" data-index="2">
+            <img src="yacht-hecmes5.jpg" class="thumbnail" data-index="3">
+            <img src="yacht-hecmes6.JPG" class="thumbnail" data-index="4">
+            <img src="yacht-hecmes7.JPG" class="thumbnail" data-index="5">
+            <img src="yacht-hecmes8.JPG" class="thumbnail" data-index="6">
+            <img src="yacht-hecmes9.JPG" class="thumbnail" data-index="7">
         </div>
+    </section>
+    
+    <style>
+    /* Основной контейнер */
+    .yacht-slider {
+        text-align: center;
+        max-width: 900px;
+        margin: auto;
+        padding: 20px 0;
+        position: relative;
+        margin-top: 40px;
+    }
+    
+    /* Обертка слайдера */
+    .slider-container {
+        overflow: hidden;
+        width: 100%;
+        max-width: 800px;
+        height: auto;
+        position: relative;
+        touch-action: pan-y;
+    }
+    
+    /* Лента изображений */
+    .slider-track {
+        display: flex;
+        transition: transform 0.4s ease-in-out;
+        will-change: transform;
+    }
+    
+    /* Улучшенное качество изображений */
+    .slider-image {
+        width: 100%;
+        max-width: 800px;
+        height: auto;
+        max-height: 500px;
+        flex-shrink: 0;
+        border-radius: 10px;
+        object-fit: cover;
+        user-select: none;
+        pointer-events: none;
+    }
+    
+    /* Миниатюры (8 фото в 2 ряда) */
+    .thumbnails-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 5px;
+        max-width: 400px;
+        margin: 15px auto;
+    }
+    
+    /* Миниатюры */
+    .thumbnail {
+        width: 90px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: transform 0.2s, opacity 0.2s;
+        border: 2px solid transparent;
+    }
+    
+    /* Выбранное фото */
+    .thumbnail.active {
+        border-color: #4caf50;
+        transform: scale(1.1);
+    }
+    
+    /* Адаптация для мобильных */
+    @media (max-width: 768px) {
+        .slider-container {
+            height: auto;
+        }
+        .slider-image {
+            height: auto;
+            max-height: 300px;
+        }
+        .thumbnails-grid {
+            max-width: 320px;
+        }
+        .thumbnail {
+            width: 70px;
+            height: 50px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .slider-container {
+            height: auto;
+        }
+        .slider-image {
+            height: auto;
+            max-height: 250px;
+        }
+        .thumbnails-grid {
+            max-width: 280px;
+        }
+        .thumbnail {
+            width: 65px;
+            height: 45px;
+        }
+    }
+    </style>
+    
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const sliderTrack = document.getElementById("sliderTrack");
+        const images = document.querySelectorAll(".slider-image");
+        const thumbnails = document.querySelectorAll(".thumbnail");
+    
+        let currentIndex = 0;
+        let startX = 0;
+        let moveX = 0;
+        let isDragging = false;
+    
+        // Функция смены фото
+        function changeSlide(index) {
+            if (index < 0) {
+                currentIndex = images.length - 1;
+            } else if (index >= images.length) {
+                currentIndex = 0;
+            } else {
+                currentIndex = index;
+            }
+    
+            let offset = -currentIndex * 100;
+            sliderTrack.style.transform = `translateX(${offset}%)`;
+    
+            // Подсветка миниатюры
+            thumbnails.forEach(thumb => thumb.classList.remove("active"));
+            if (thumbnails[currentIndex]) {
+                thumbnails[currentIndex].classList.add("active");
+            }
+        }
+    
+        // Начало свайпа
+        sliderTrack.addEventListener("touchstart", function (e) {
+            startX = e.touches[0].clientX;
+            isDragging = true;
+        });
+    
+        // Движение свайпа
+        sliderTrack.addEventListener("touchmove", function (e) {
+            if (!isDragging) return;
+            moveX = e.touches[0].clientX - startX;
+        });
+    
+        // Конец свайпа
+        sliderTrack.addEventListener("touchend", function () {
+            if (!isDragging) return;
+            isDragging = false;
+    
+            if (moveX < -50) {
+                changeSlide(currentIndex + 1); // Свайп влево
+            } else if (moveX > 50) {
+                changeSlide(currentIndex - 1); // Свайп вправо
+            }
+    
+            moveX = 0; // Сбрасываем значение moveX
+        });
+    
+        // Листаем мышкой (ПК)
+        sliderTrack.addEventListener("mousedown", function (e) {
+            startX = e.clientX;
+            isDragging = true;
+        });
+    
+        document.addEventListener("mousemove", function (e) {
+            if (!isDragging) return;
+            moveX = e.clientX - startX;
+        });
+    
+        document.addEventListener("mouseup", function () {
+            if (!isDragging) return;
+            isDragging = false;
+    
+            if (moveX < -50) {
+                changeSlide(currentIndex + 1); // Перетаскивание влево
+            } else if (moveX > 50) {
+                changeSlide(currentIndex - 1); // Перетаскивание вправо
+            }
+    
+            moveX = 0; // Сбрасываем значение moveX
+        });
+    
+        // Клик по миниатюре
+        thumbnails.forEach((thumbnail) => {
+            thumbnail.addEventListener("click", function () {
+                let index = parseInt(thumbnail.getAttribute("data-index"));
+                changeSlide(index);
+            });
+        });
+    });
+    </script>
 
         <div class="yacht-info">
             <div class="yacht-title-container">
@@ -749,16 +957,6 @@
 
             <div class="rental-info">
                 <p>Минимальное время аренды: <strong>1 час</strong></p>
-                <!-- <div class="price-section">
-                    <div class="price-box price-weekday">
-                        <span>ПН-ЧТ</span>
-                        <span class="price-inner">ОТ <strong>18 000</strong> ₽/ЧАС</span>
-                    </div>
-                    <div class="price-box price-weekend">
-                        <span>ПТ-ВС</span>
-                        <span class="price-inner">ОТ <strong>21 000</strong> ₽/ЧАС</span>
-                    </div>
-                </div> -->
             </div>
 
             <button class="cta-button" id="rent-button">Арендовать</button>
@@ -831,8 +1029,6 @@
         </div>
     </section>
     <style>
-
-
 
 .rules-container {
     display: flex;
@@ -1087,60 +1283,6 @@
 }
     </style>
     
-    <!-- <section class="tariff-section">
-        <h2>Тарифы</h2>
-        
- 
-        <div class="tariff-box low-season">
-            <div class="tariff-header">Низкий сезон</div>
-            <table class="tariff-table">
-                <tr>
-                    <th>Период</th>
-                    <th>Цена (₽/час)</th>
-                </tr>
-                <tr>
-                    <td>до 15 мая и с 1 сентября</td>
-                    <td>
-                        ПН-ЧТ: <strong>18 000</strong> ₽/час<br>
-                        ПТ-ВС: <strong>21 000</strong> ₽/час
-                    </td>
-                </tr>
-                <tr>
-                    <td>Мосты</td>
-                    <td>
-                        ПН-ЧТ: <strong>20 000</strong> ₽/час<br>
-                        ПТ-ВС: <strong>23 000</strong> ₽/час
-                    </td>
-                </tr>
-            </table>
-        </div>
-    
-        <div class="tariff-box high-season">
-            <div class="tariff-header">Высокий сезон</div>
-            <table class="tariff-table">
-                <tr>
-                    <th>Период</th>
-                    <th>Цена (₽/час)</th>
-                </tr>
-                <tr>
-                    <td>с 15 мая по 31 августа</td>
-                    <td>
-                        ПН-ЧТ: <strong>23 000</strong> ₽/час<br>
-                        ПТ-ВС: <strong>27 000</strong> ₽/час
-                    </td>
-                </tr>
-                <tr>
-                    <td>Мосты</td>
-                    <td>
-                        ПН-ЧТ: <strong>25 000</strong> ₽/час<br>
-                        ПТ-ВС: <strong>30 000</strong> ₽/час
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </section> -->
-
-
     <!-- Футер -->
 <footer class="company-footer">
     <div class="footer-content">
@@ -1157,13 +1299,7 @@
                 <span class="separator">|</span>
                 <span class="established">est. 2014</span>
             </div>
-            <!-- <div class="location-item">
-                <span class="city">Дубай</span>
-                <span class="separator">|</span>
-                <span class="established">est. 2024</span>
-            </div> -->
         </div>
-
         <!-- Социальные иконки (новая версия) -->
         <div class="social-icons-new">
             <a href="#" class="social-link whatsapp">
@@ -1176,7 +1312,6 @@
                 <i class="fas fa-phone"></i>
             </a>
         </div>
-
         <!-- Политика конфиденциальности -->
         <div class="footer-legal">
             <a href="/privacy-policy" class="privacy-link">
