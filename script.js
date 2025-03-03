@@ -50,8 +50,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const boatName = document.getElementById("booking-boat-name");
 
     // ДАННЫЕ ТЕЛЕГРАМ-БОТА
-    const TELEGRAM_BOT_TOKEN = "5807422883:AAGkbgd6-bUeFRkguNHaJwZ77auV1XjAV7c";  // Вставь сюда токен бота
-    const TELEGRAM_CHAT_ID = "1301142907"; // Вставь сюда ID канала (с -100 в начале, если приватный)
+    const TELEGRAM_BOT_TOKEN = "7873850845:AAHqXxX-jyozeUKTxSaGPqMmo9uIetwTyss";  // Вставь сюда токен бота
+    const TELEGRAM_CHAT_ID = "301593280"; // Вставь сюда ID канала (с -100 в начале, если приватный)
 
     // Открытие модального окна
     rentButtons.forEach(button => {
@@ -257,6 +257,43 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".catalog-item").forEach((item) => {
+        try {
+            const images = item.querySelectorAll(".catalog-photo");
+            let currentIndex = 0;
+
+            if (!images.length) {
+                console.warn("❌ Ошибка: нет изображений в карточке:", item);
+                return;
+            }
+
+            function updateImage(index) {
+                images.forEach((img, i) => {
+                    img.classList.toggle("active", i === index);
+                });
+            }
+
+            item.querySelector(".prev-btn").addEventListener("click", (event) => {
+                event.stopPropagation();
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                updateImage(currentIndex);
+            });
+
+            item.querySelector(".next-btn").addEventListener("click", (event) => {
+                event.stopPropagation();
+                currentIndex = (currentIndex + 1) % images.length;
+                updateImage(currentIndex);
+            });
+
+            updateImage(currentIndex);
+        } catch (error) {
+            console.error("Ошибка при перелистывании изображений:", error);
+        }
+    });
+});
+
 document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".catalog-item").forEach((item) => {
         const mainImage = item.querySelector(".catalog-photo");
@@ -278,7 +315,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const images = {
             "HERMES": ["yacht-hecmes.jpg", "yacht-hecmes2.jpg", "yacht-hecmes3.jpg", "yacht-hecmes4.jpg"],
             "ECLIPSE": ["ECLIPSE.jpg", "ECLIPSE1.jpg", "ECLIPSE2.jpg", "ECLIPSE3.jpg", "ECLIPSE4.JPG", "ECLIPSE5.JPG", "ECLIPSE6.JPG", "ECLIPSE7.JPG", "ECLIPSE8.JPG", "ECLIPSE9.JPG", "ECLIPSE10.JPG", "ECLIPSE11.JPG"],
-            "Катер Velvette": ["VELVETTE.jpg", "VELVETTE1.jpg", "VELVETTE2.jpg", "VELVETTE3.jpg"]
+            "Катер Velvette": ["VELVETTE.jpg", "VELVETTE1.jpg", "VELVETTE2.jpg", "VELVETTE3.jpg", "VELVETTE4.JPG", "VELVETTE5.JPG" ]
         };
 
         if (!images[yachtName] || images[yachtName].length === 0) return;
@@ -311,3 +348,96 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".catalog-item").forEach((item) => {
+        const images = item.querySelectorAll(".catalog-photo");
+        const prevBtn = item.querySelector(".prev-btn");
+        const nextBtn = item.querySelector(".next-btn");
+
+        let currentIndex = 0;
+
+        function updateImage(index) {
+            images.forEach((img, i) => {
+                img.classList.toggle("active", i === index);
+            });
+        }
+
+        prevBtn.addEventListener("click", (event) => {
+            event.stopPropagation();
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateImage(currentIndex);
+        });
+
+        nextBtn.addEventListener("click", (event) => {
+            event.stopPropagation();
+            currentIndex = (currentIndex + 1) % images.length;
+            updateImage(currentIndex);
+        });
+
+        updateImage(currentIndex);
+    });
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".catalog-item").forEach((item) => {
+        const images = item.querySelectorAll(".catalog-photo");
+        const prevBtn = item.querySelector(".prev-btn");
+        const nextBtn = item.querySelector(".next-btn");
+        const detailsBtn = item.querySelector(".btn-details");
+        const rentBtn = item.querySelector(".btn-rent");
+
+        let currentIndex = 0;
+
+        function updateImage(index) {
+            images.forEach((img, i) => img.classList.toggle("active", i === index));
+        }
+
+        prevBtn.addEventListener("click", (event) => {
+            event.stopPropagation();
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateImage(currentIndex);
+        });
+
+        nextBtn.addEventListener("click", (event) => {
+            event.stopPropagation();
+            currentIndex = (currentIndex + 1) % images.length;
+            updateImage(currentIndex);
+        });
+
+        // Клик по карточке (переброс на страницу)
+        item.addEventListener("click", (event) => {
+            // Проверяем, был ли клик по кнопке (чтобы не мешать работе кнопок)
+            if (!event.target.closest(".prev-btn") && 
+                !event.target.closest(".next-btn") && 
+                !event.target.closest(".btn-details") && 
+                !event.target.closest(".btn-rent")) {
+                    
+                // Получаем название яхты из data-yacht атрибута или заголовка
+                let yachtPage = detailsBtn?.getAttribute("href") || "#";
+                window.location.href = yachtPage;
+            }
+        });
+
+        updateImage(currentIndex);
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const images = document.querySelectorAll(".lazyload");
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.classList.remove("lazyload");
+                observer.unobserve(img);
+            }
+        });
+    });
+
+    images.forEach(img => observer.observe(img));
+});

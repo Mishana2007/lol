@@ -1,19 +1,41 @@
-/* Подключаем премиальные шрифты */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&family=Lexend:wght@700&display=swap');
+/* ✅ Подключаем премиальные шрифты */
+/* Импортируем только нужные шрифты */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Playfair+Display:wght@400;700&family=Raleway:wght@400;700&family=Roboto+Slab:wght@400;700&display=swap');
 
-/* Базовые стили */
+/* ✅ Базовые стили */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif; /* Современный и читаемый основной шрифт */
+    font-family: 'Poppins', sans-serif; /* Основной шрифт */
 }
 
-/* Заголовки, логотип */
+/* ✅ Заголовки, логотип */
 h1, h2, h3, .logo {
-    font-family: 'Playfair Display', serif; /* Элегантный, премиальный стиль */
+    font-family: 'Raleway', sans-serif !important; /* Стандартный шрифт для заголовков */
+}
+
+/* ✅ Специальный стиль для h3[itemprop="name"] */
+h3[itemprop="name"] {
+    font-family: 'Roboto Slab', serif !important; /* Новый шрифт для лучшей читаемости */
     font-weight: 700;
-    letter-spacing: 0.5px;
+    font-size: 22px; /* Чуть увеличил размер */
+    color: #222; /* Более контрастный цвет */
+    text-transform: uppercase; /* Чтобы смотрелось ровно */
+    letter-spacing: 0.5px; /* Улучшенная читаемость */
+}
+
+/* ✅ Общий стиль для h3 */
+h3 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+}
+
+/* ✅ Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+    h3[itemprop="name"] {
+        font-size: 18px; /* Чуть меньше на мобильных */
+    }
 }
 
 /* Цена */
@@ -73,6 +95,10 @@ body {
         padding: 0.6rem 1.5rem; /* Уменьшаем отступы на мобильных */
     }
 }
+
+
+
+
 
 .nav-container {
     max-width: 1200px;
@@ -262,80 +288,192 @@ z-index: 1000;
 }
 
 /* Основной стиль секции */
-.hero-section {
+/* Контейнер */
+.hero-banner {
     position: relative;
+    width: 100%;
     text-align: center;
-    padding: 0;
 }
 
 /* Фон баннера */
-.hero-image {
+.hero-banner-image {
     background: url('yacht-background.png') center/cover no-repeat;
-    height: 350px; /* Увеличенная высота */
+    height: 380px;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: white;
+    flex-direction: column;
     position: relative;
-    padding: 20px;
 }
 
-/* Затемнение для контраста */
-.hero-overlay {
+/* Затемнение */
+.hero-banner-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.45);
 }
 
-/* Заголовок (поднимаем вверх) */
-.hero-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    font-weight: 700;
-    text-align: center;
-    text-transform: uppercase;
+
+.social-icons-new {
+    display: flex;
+    gap: 10px;
+}
+
+.social-link {
+    font-size: 24px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #f5f5f5; /* Лёгкий фон для иконок */
+    transition: 0.3s;
+}
+
+.social-link i {
+    color: #555; /* Цвет иконки по умолчанию */
+}
+
+/* Цвета для соцсетей */
+.whatsapp {
+    background-color: #25D366;
+}
+.whatsapp i {
     color: #fff;
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+}
+
+.telegram {
+    background-color: #0088cc;
+}
+.telegram i {
+    color: #fff;
+}
+
+.phone {
+    background-color: #000;
+}
+.phone i {
+    color: #fff;
+}
+
+/* ВКонтакте – ярко-синий цвет */
+.vk {
+    background-color: #0077FF; /* Яркий синий фон */
+}
+.vk i {
+    color: #fff; /* Белая иконка */
+}
+
+/* Эффект при наведении */
+.social-link:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+/* Заголовок */
+.hero-banner-title {
+    font-family: 'Montserrat', sans-serif; /* Новый шрифт для читаемости */
+    font-size: 2.2rem; /* Уменьшен */
+    font-weight: 800;
+    text-transform: uppercase;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6);
+    line-height: 1.3;
+    margin-bottom: 10px;
     position: absolute;
-    top: 20%; /* Поднял выше */
+    top: 22%; /* Чуть выше */
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 90%;
+    width: 85%;
+    color: white;
 }
 
-/* Подзаголовок (оставляем внизу) */
-.hero-subtitle {
-    font-family: 'Lora', serif; /* Элегантный шрифт */
-    font-size: 1.6rem;
+/* Подзаголовок */
+.hero-banner-subtitle {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.3rem; /* Сделал компактнее */
+    font-weight: 400;
     text-align: center;
-    color: #ffffff;
     max-width: 80%;
+    line-height: 1.5;
     position: absolute;
-    bottom: 10%; /* Оставляем 15px от нижнего края */
+    bottom: 35px; /* Опустил ниже */
     left: 50%;
     transform: translateX(-50%);
-    line-height: 1.6;
+    color: white; /* Чисто белый */
 }
 
 /* Адаптация для мобильных */
 @media (max-width: 768px) {
-    .hero-image {
-        height: 280px;
+    .hero-banner-image {
+        height: 320px;
     }
 
-    .hero-title {
-        font-size: 2.4rem;
-        top: 18%; /* Поднимаем еще выше на мобилках */
+    .hero-banner-title {
+        font-size: 1.9rem;
+        top: 18%;
     }
 
-    .hero-subtitle {
-        font-size: 1.3rem;
-        bottom: 8%; /* Чуть выше */
+    .hero-banner-subtitle {
+        font-size: 1.1rem;
+        bottom: 25px;
     }
+}
+
+
+
+
+.catalog-photo {
+    display: none;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.catalog-photo.active {
+    display: block;
+}
+
+.prev-btn, .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px 15px;
+    font-size: 20px;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.prev-btn:hover, .next-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+
+.contact-title {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .advantages {
